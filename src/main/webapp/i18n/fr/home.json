@@ -1,19 +1,9 @@
 {
     "home": {
-        "title": "Bienvenue, Java Hipster !",
-        "subtitle": "Ceci est votre page d'accueil",
+        "title": "Welcome to Health Care Platform!",
         "logged": {
-            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+            "message": "Hi \"{{username}}\"."
         },
-        "question": "Si vous avez des questions à propos de JHipster :",
-        "link": {
-            "homepage": "Page d'accueil de JHipster",
-            "stackoverflow": "JHipster sur Stack Overflow",
-            "bugtracker": "JHipster bug tracker",
-            "chat": "JHipster public chat room",
-            "follow": "Suivez @java_hipster sur Twitter"
-        },
-        "like": "Si vous aimez JHipster, donnez nous une étoile sur",
-        "github": "GitHub "
+        "review": "Health care technology is more than managing patient records and coordinating care – the employee communities behindProviders, Payers and Pharma/Med Device organizations are rapidly integrating technology and adapting their strategies to do morewith less – and that’s where we can help. Access to health care may vary across countries, communities, and individuals, largely influenced by social and economic conditions as well as the health policies in place. Countries and jurisdictions have different policies and plans in relation to the personal and population-based health care goals within their societies. Healthcare systems are organizations established to meet the health needs of targeted populations. Their exact configuration varies between national and subnational entities. In some countries and jurisdictions, health care planning is distributed among market participants, whereas in others, planning occurs more centrally among governments or other coordinating bodies. In all cases, according to the World Health Organization (WHO), a well-functioning healthcare system requires a robust financing mechanism; a well-trained and adequately paid workforce; reliable information on which to base decisions and policies; and well maintained health facilities and logistics to deliver quality medicines and technologies."
     }
 }

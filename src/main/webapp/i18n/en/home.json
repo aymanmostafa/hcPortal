@@ -1,19 +1,9 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "Welcome to Health Care Platform!",
         "logged": {
-            "message": "You are logged in as user \"{{username}}\"."
+            "message": "Hi \"{{username}}\"."
         },
-        "question": "If you have any question on JHipster:",
-        "link": {
-            "homepage": "JHipster homepage",
-            "stackoverflow": "JHipster on Stack Overflow",
-            "bugtracker": "JHipster bug tracker",
-            "chat": "JHipster public chat room",
-            "follow": "follow @java_hipster on Twitter"
-        },
-        "like": "If you like JHipster, don't forget to give us a star on",
-        "github": "GitHub"
+        "review": "Health care technology is more than managing patient records and coordinating care – the employee communities behindProviders, Payers and Pharma/Med Device organizations are rapidly integrating technology and adapting their strategies to do morewith less – and that’s where we can help. Access to health care may vary across countries, communities, and individuals, largely influenced by social and economic conditions as well as the health policies in place. Countries and jurisdictions have different policies and plans in relation to the personal and population-based health care goals within their societies. Healthcare systems are organizations established to meet the health needs of targeted populations. Their exact configuration varies between national and subnational entities. In some countries and jurisdictions, health care planning is distributed among market participants, whereas in others, planning occurs more centrally among governments or other coordinating bodies. In all cases, according to the World Health Organization (WHO), a well-functioning healthcare system requires a robust financing mechanism; a well-trained and adequately paid workforce; reliable information on which to base decisions and policies; and well maintained health facilities and logistics to deliver quality medicines and technologies."
     }
 }
