@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "menstrualCycle" : {
+            "home": {
+                "title": "MenstrualCycles",
+                "createLabel": "Créer un nouveau Menstrual Cycle",
+                "createOrEditLabel": "Créer ou éditer un Menstrual Cycle"
+            },
+            "created": "Un nouveau Menstrual Cycle a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Menstrual Cycle avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Menstrual Cycle avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Menstrual Cycle {{ id }} ?"
+            },
+            "detail": {
+                "title": "Menstrual Cycle"
+            },
+            "userid": "Userid",
+            "startDate": "Start Date",
+            "endDate": "End Date"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+
+<div *ngIf="dentistVisit">
+    <h2><span jhiTranslate="hcPortalApp.dentistVisit.detail.title">Dentist Visit</span> {{dentistVisit.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.userid">Userid</span></dt>
+        <dd>
+            <span>{{dentistVisit.userid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.teethcleaning">Teethcleaning</span></dt>
+        <dd>
+            <span>{{dentistVisit.teethcleaning}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.whitening">Whitening</span></dt>
+        <dd>
+            <span>{{dentistVisit.whitening}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.restoration">Restoration</span></dt>
+        <dd>
+            <span>{{dentistVisit.restoration}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.crowns">Crowns</span></dt>
+        <dd>
+            <span>{{dentistVisit.crowns}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.bridges">Bridges</span></dt>
+        <dd>
+            <span>{{dentistVisit.bridges}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.braces">Braces</span></dt>
+        <dd>
+            <span>{{dentistVisit.braces}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.endodontictherapy">Endodontictherapy</span></dt>
+        <dd>
+            <span>{{dentistVisit.endodontictherapy}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.periodontaltherapy">Periodontaltherapy</span></dt>
+        <dd>
+            <span>{{dentistVisit.periodontaltherapy}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.extraction">Extraction</span></dt>
+        <dd>
+            <span>{{dentistVisit.extraction}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.oralsurgery">Oralsurgery</span></dt>
+        <dd>
+            <span>{{dentistVisit.oralsurgery}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.notes">Notes</span></dt>
+        <dd>
+            <span>{{dentistVisit.notes}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.dentistVisit.measurmentdate">Measurmentdate</span></dt>
+        <dd>
+            <span>{{dentistVisit.measurmentdate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dentist-visit/'+ dentistVisit.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

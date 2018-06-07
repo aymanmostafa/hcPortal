@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "vsBodyTemperature" : {
+            "home": {
+                "title": "VsBodyTemperatures",
+                "createLabel": "Créer un nouveau Vs Body Temperature",
+                "createOrEditLabel": "Créer ou éditer un Vs Body Temperature"
+            },
+            "created": "Un nouveau Vs Body Temperature a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Vs Body Temperature avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Vs Body Temperature avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Vs Body Temperature {{ id }} ?"
+            },
+            "detail": {
+                "title": "Vs Body Temperature"
+            },
+            "userid": "Userid",
+            "celsius": "Celsius",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

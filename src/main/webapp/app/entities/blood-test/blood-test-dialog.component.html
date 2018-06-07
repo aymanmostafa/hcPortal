@@ -1,0 +1,371 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBloodTestLabel" jhiTranslate="hcPortalApp.bloodTest.home.createOrEditLabel">Create or edit a Blood Test</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!bloodTest.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="bloodTest.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.userid" for="field_userid">Userid</label>
+            <input type="text" class="form-control" name="userid" id="field_userid"
+                [(ngModel)]="bloodTest.userid" required/>
+            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.hydroxyprogesterone17" for="field_hydroxyprogesterone17">Hydroxyprogesterone 17</label>
+            <input type="number" class="form-control" name="hydroxyprogesterone17" id="field_hydroxyprogesterone17"
+                [(ngModel)]="bloodTest.hydroxyprogesterone17" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.hydroxyvitaminD25" for="field_hydroxyvitaminD25">Hydroxyvitamin D 25</label>
+            <input type="number" class="form-control" name="hydroxyvitaminD25" id="field_hydroxyvitaminD25"
+                [(ngModel)]="bloodTest.hydroxyvitaminD25" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.acetoacetate" for="field_acetoacetate">Acetoacetate</label>
+            <input type="number" class="form-control" name="acetoacetate" id="field_acetoacetate"
+                [(ngModel)]="bloodTest.acetoacetate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.acidity" for="field_acidity">Acidity</label>
+            <input type="number" class="form-control" name="acidity" id="field_acidity"
+                [(ngModel)]="bloodTest.acidity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.alcohol" for="field_alcohol">Alcohol</label>
+            <input type="number" class="form-control" name="alcohol" id="field_alcohol"
+                [(ngModel)]="bloodTest.alcohol" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.ammonia" for="field_ammonia">Ammonia</label>
+            <input type="number" class="form-control" name="ammonia" id="field_ammonia"
+                [(ngModel)]="bloodTest.ammonia" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.amylase" for="field_amylase">Amylase</label>
+            <input type="number" class="form-control" name="amylase" id="field_amylase"
+                [(ngModel)]="bloodTest.amylase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.ascorbicAcid" for="field_ascorbicAcid">Ascorbic Acid</label>
+            <input type="number" class="form-control" name="ascorbicAcid" id="field_ascorbicAcid"
+                [(ngModel)]="bloodTest.ascorbicAcid" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.bicarbonate" for="field_bicarbonate">Bicarbonate</label>
+            <input type="number" class="form-control" name="bicarbonate" id="field_bicarbonate"
+                [(ngModel)]="bloodTest.bicarbonate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.bilirubin" for="field_bilirubin">Bilirubin</label>
+            <input type="number" class="form-control" name="bilirubin" id="field_bilirubin"
+                [(ngModel)]="bloodTest.bilirubin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.bloodVolume" for="field_bloodVolume">Blood Volume</label>
+            <input type="number" class="form-control" name="bloodVolume" id="field_bloodVolume"
+                [(ngModel)]="bloodTest.bloodVolume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.calcium" for="field_calcium">Calcium</label>
+            <input type="number" class="form-control" name="calcium" id="field_calcium"
+                [(ngModel)]="bloodTest.calcium" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.carbonDioxidePressure" for="field_carbonDioxidePressure">Carbon Dioxide Pressure</label>
+            <input type="number" class="form-control" name="carbonDioxidePressure" id="field_carbonDioxidePressure"
+                [(ngModel)]="bloodTest.carbonDioxidePressure" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.carbonMonoxide" for="field_carbonMonoxide">Carbon Monoxide</label>
+            <input type="number" class="form-control" name="carbonMonoxide" id="field_carbonMonoxide"
+                [(ngModel)]="bloodTest.carbonMonoxide" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.cD4CellCount" for="field_cD4CellCount">C D 4 Cell Count</label>
+            <input type="number" class="form-control" name="cD4CellCount" id="field_cD4CellCount"
+                [(ngModel)]="bloodTest.cD4CellCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.ceruloplasmin" for="field_ceruloplasmin">Ceruloplasmin</label>
+            <input type="number" class="form-control" name="ceruloplasmin" id="field_ceruloplasmin"
+                [(ngModel)]="bloodTest.ceruloplasmin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.chloride" for="field_chloride">Chloride</label>
+            <input type="number" class="form-control" name="chloride" id="field_chloride"
+                [(ngModel)]="bloodTest.chloride" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.completeBloodCellCount" for="field_completeBloodCellCount">Complete Blood Cell Count</label>
+            <input type="number" class="form-control" name="completeBloodCellCount" id="field_completeBloodCellCount"
+                [(ngModel)]="bloodTest.completeBloodCellCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.copper" for="field_copper">Copper</label>
+            <input type="number" class="form-control" name="copper" id="field_copper"
+                [(ngModel)]="bloodTest.copper" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.creatineKinase" for="field_creatineKinase">Creatine Kinase</label>
+            <input type="number" class="form-control" name="creatineKinase" id="field_creatineKinase"
+                [(ngModel)]="bloodTest.creatineKinase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.creatineKinaseIsoenzymes" for="field_creatineKinaseIsoenzymes">Creatine Kinase Isoenzymes</label>
+            <input type="number" class="form-control" name="creatineKinaseIsoenzymes" id="field_creatineKinaseIsoenzymes"
+                [(ngModel)]="bloodTest.creatineKinaseIsoenzymes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.creatinine" for="field_creatinine">Creatinine</label>
+            <input type="number" class="form-control" name="creatinine" id="field_creatinine"
+                [(ngModel)]="bloodTest.creatinine" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.electrolytes" for="field_electrolytes">Electrolytes</label>
+            <input type="number" class="form-control" name="electrolytes" id="field_electrolytes"
+                [(ngModel)]="bloodTest.electrolytes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.erythrocyteSedimentationRate" for="field_erythrocyteSedimentationRate">Erythrocyte Sedimentation Rate</label>
+            <input type="number" class="form-control" name="erythrocyteSedimentationRate" id="field_erythrocyteSedimentationRate"
+                [(ngModel)]="bloodTest.erythrocyteSedimentationRate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.glucose" for="field_glucose">Glucose</label>
+            <input type="number" class="form-control" name="glucose" id="field_glucose"
+                [(ngModel)]="bloodTest.glucose" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.hematocrit" for="field_hematocrit">Hematocrit</label>
+            <input type="number" class="form-control" name="hematocrit" id="field_hematocrit"
+                [(ngModel)]="bloodTest.hematocrit" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.hemoglobin" for="field_hemoglobin">Hemoglobin</label>
+            <input type="number" class="form-control" name="hemoglobin" id="field_hemoglobin"
+                [(ngModel)]="bloodTest.hemoglobin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.iron" for="field_iron">Iron</label>
+            <input type="number" class="form-control" name="iron" id="field_iron"
+                [(ngModel)]="bloodTest.iron" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.ironBindingCapacity" for="field_ironBindingCapacity">Iron Binding Capacity</label>
+            <input type="number" class="form-control" name="ironBindingCapacity" id="field_ironBindingCapacity"
+                [(ngModel)]="bloodTest.ironBindingCapacity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lactate" for="field_lactate">Lactate</label>
+            <input type="number" class="form-control" name="lactate" id="field_lactate"
+                [(ngModel)]="bloodTest.lactate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lacticDehydrogenase" for="field_lacticDehydrogenase">Lactic Dehydrogenase</label>
+            <input type="number" class="form-control" name="lacticDehydrogenase" id="field_lacticDehydrogenase"
+                [(ngModel)]="bloodTest.lacticDehydrogenase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lead" for="field_lead">Lead</label>
+            <input type="number" class="form-control" name="lead" id="field_lead"
+                [(ngModel)]="bloodTest.lead" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lipase" for="field_lipase">Lipase</label>
+            <input type="number" class="form-control" name="lipase" id="field_lipase"
+                [(ngModel)]="bloodTest.lipase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.zinc" for="field_zinc">Zinc</label>
+            <input type="number" class="form-control" name="zinc" id="field_zinc"
+                [(ngModel)]="bloodTest.zinc" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lipidsCholesterol" for="field_lipidsCholesterol">Lipids Cholesterol</label>
+            <input type="number" class="form-control" name="lipidsCholesterol" id="field_lipidsCholesterol"
+                [(ngModel)]="bloodTest.lipidsCholesterol" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.lipidsTriglycerides" for="field_lipidsTriglycerides">Lipids Triglycerides</label>
+            <input type="number" class="form-control" name="lipidsTriglycerides" id="field_lipidsTriglycerides"
+                [(ngModel)]="bloodTest.lipidsTriglycerides" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.magnesium" for="field_magnesium">Magnesium</label>
+            <input type="number" class="form-control" name="magnesium" id="field_magnesium"
+                [(ngModel)]="bloodTest.magnesium" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularHemoglobin" for="field_meanCorpuscularHemoglobin">Mean Corpuscular Hemoglobin</label>
+            <input type="number" class="form-control" name="meanCorpuscularHemoglobin" id="field_meanCorpuscularHemoglobin"
+                [(ngModel)]="bloodTest.meanCorpuscularHemoglobin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularHemoglobinConcentration" for="field_meanCorpuscularHemoglobinConcentration">Mean Corpuscular Hemoglobin Concentration</label>
+            <input type="number" class="form-control" name="meanCorpuscularHemoglobinConcentration" id="field_meanCorpuscularHemoglobinConcentration"
+                [(ngModel)]="bloodTest.meanCorpuscularHemoglobinConcentration" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularVolume" for="field_meanCorpuscularVolume">Mean Corpuscular Volume</label>
+            <input type="number" class="form-control" name="meanCorpuscularVolume" id="field_meanCorpuscularVolume"
+                [(ngModel)]="bloodTest.meanCorpuscularVolume" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.osmolality" for="field_osmolality">Osmolality</label>
+            <input type="number" class="form-control" name="osmolality" id="field_osmolality"
+                [(ngModel)]="bloodTest.osmolality" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.oxygenPressure" for="field_oxygenPressure">Oxygen Pressure</label>
+            <input type="number" class="form-control" name="oxygenPressure" id="field_oxygenPressure"
+                [(ngModel)]="bloodTest.oxygenPressure" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.oxygenSaturation" for="field_oxygenSaturation">Oxygen Saturation</label>
+            <input type="number" class="form-control" name="oxygenSaturation" id="field_oxygenSaturation"
+                [(ngModel)]="bloodTest.oxygenSaturation" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.phosphataseProstatic" for="field_phosphataseProstatic">Phosphatase Prostatic</label>
+            <input type="number" class="form-control" name="phosphataseProstatic" id="field_phosphataseProstatic"
+                [(ngModel)]="bloodTest.phosphataseProstatic" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.phosphatase" for="field_phosphatase">Phosphatase</label>
+            <input type="number" class="form-control" name="phosphatase" id="field_phosphatase"
+                [(ngModel)]="bloodTest.phosphatase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.phosphorus" for="field_phosphorus">Phosphorus</label>
+            <input type="number" class="form-control" name="phosphorus" id="field_phosphorus"
+                [(ngModel)]="bloodTest.phosphorus" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.plateletCount" for="field_plateletCount">Platelet Count</label>
+            <input type="number" class="form-control" name="plateletCount" id="field_plateletCount"
+                [(ngModel)]="bloodTest.plateletCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.potassium" for="field_potassium">Potassium</label>
+            <input type="number" class="form-control" name="potassium" id="field_potassium"
+                [(ngModel)]="bloodTest.potassium" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.prostateSpecificAntigen" for="field_prostateSpecificAntigen">Prostate Specific Antigen</label>
+            <input type="number" class="form-control" name="prostateSpecificAntigen" id="field_prostateSpecificAntigen"
+                [(ngModel)]="bloodTest.prostateSpecificAntigen" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.proteinsTotal" for="field_proteinsTotal">Proteins Total</label>
+            <input type="number" class="form-control" name="proteinsTotal" id="field_proteinsTotal"
+                [(ngModel)]="bloodTest.proteinsTotal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.proteinsAlbumin" for="field_proteinsAlbumin">Proteins Albumin</label>
+            <input type="number" class="form-control" name="proteinsAlbumin" id="field_proteinsAlbumin"
+                [(ngModel)]="bloodTest.proteinsAlbumin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.proteinsGlobulin" for="field_proteinsGlobulin">Proteins Globulin</label>
+            <input type="number" class="form-control" name="proteinsGlobulin" id="field_proteinsGlobulin"
+                [(ngModel)]="bloodTest.proteinsGlobulin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.prothrombin" for="field_prothrombin">Prothrombin</label>
+            <input type="number" class="form-control" name="prothrombin" id="field_prothrombin"
+                [(ngModel)]="bloodTest.prothrombin" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.pyruvicAcid" for="field_pyruvicAcid">Pyruvic Acid</label>
+            <input type="number" class="form-control" name="pyruvicAcid" id="field_pyruvicAcid"
+                [(ngModel)]="bloodTest.pyruvicAcid" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.redBloodCellCount" for="field_redBloodCellCount">Red Blood Cell Count</label>
+            <input type="number" class="form-control" name="redBloodCellCount" id="field_redBloodCellCount"
+                [(ngModel)]="bloodTest.redBloodCellCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.sodium" for="field_sodium">Sodium</label>
+            <input type="number" class="form-control" name="sodium" id="field_sodium"
+                [(ngModel)]="bloodTest.sodium" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.thyroidStimulatingHormone" for="field_thyroidStimulatingHormone">Thyroid Stimulating Hormone</label>
+            <input type="number" class="form-control" name="thyroidStimulatingHormone" id="field_thyroidStimulatingHormone"
+                [(ngModel)]="bloodTest.thyroidStimulatingHormone" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.transaminaseAlanine" for="field_transaminaseAlanine">Transaminase Alanine</label>
+            <input type="number" class="form-control" name="transaminaseAlanine" id="field_transaminaseAlanine"
+                [(ngModel)]="bloodTest.transaminaseAlanine" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.transaminaseAspartate" for="field_transaminaseAspartate">Transaminase Aspartate</label>
+            <input type="number" class="form-control" name="transaminaseAspartate" id="field_transaminaseAspartate"
+                [(ngModel)]="bloodTest.transaminaseAspartate" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.ureaNitrogen" for="field_ureaNitrogen">Urea Nitrogen</label>
+            <input type="number" class="form-control" name="ureaNitrogen" id="field_ureaNitrogen"
+                [(ngModel)]="bloodTest.ureaNitrogen" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.bUNCreatinineRatio" for="field_bUNCreatinineRatio">B UN Creatinine Ratio</label>
+            <input type="number" class="form-control" name="bUNCreatinineRatio" id="field_bUNCreatinineRatio"
+                [(ngModel)]="bloodTest.bUNCreatinineRatio" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.uricAcid" for="field_uricAcid">Uric Acid</label>
+            <input type="number" class="form-control" name="uricAcid" id="field_uricAcid"
+                [(ngModel)]="bloodTest.uricAcid" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.vitaminA" for="field_vitaminA">Vitamin A</label>
+            <input type="number" class="form-control" name="vitaminA" id="field_vitaminA"
+                [(ngModel)]="bloodTest.vitaminA" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.wBC" for="field_wBC">W BC</label>
+            <input type="number" class="form-control" name="wBC" id="field_wBC"
+                [(ngModel)]="bloodTest.wBC" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.whiteBloodCellCount" for="field_whiteBloodCellCount">White Blood Cell Count</label>
+            <input type="number" class="form-control" name="whiteBloodCellCount" id="field_whiteBloodCellCount"
+                [(ngModel)]="bloodTest.whiteBloodCellCount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.bloodTest.measurmentdate" for="field_measurmentdate">Measurmentdate</label>
+            <div class="input-group">
+                <input id="field_measurmentdate" type="text" class="form-control" name="measurmentdate" ngbDatepicker  #measurmentdateDp="ngbDatepicker" [(ngModel)]="bloodTest.measurmentdate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="measurmentdateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

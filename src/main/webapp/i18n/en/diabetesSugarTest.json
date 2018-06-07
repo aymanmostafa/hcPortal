@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "diabetesSugarTest" : {
+            "home": {
+                "title": "Diabetes Sugar Tests",
+                "createLabel": "Create a new Diabetes Sugar Test",
+                "createOrEditLabel": "Create or edit a Diabetes Sugar Test"
+            },
+            "created": "A new Diabetes Sugar Test is created with identifier {{ param }}",
+            "updated": "A Diabetes Sugar Test is updated with identifier {{ param }}",
+            "deleted": "A Diabetes Sugar Test is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Diabetes Sugar Test {{ id }}?"
+            },
+            "detail": {
+                "title": "Diabetes Sugar Test"
+            },
+            "userid": "Userid",
+            "result": "Result",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

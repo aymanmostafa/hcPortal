@@ -1,0 +1,23 @@
+
+{
+    "hcPortalApp": {
+        "dentistNextVisit" : {
+            "home": {
+                "title": "DentistNextVisits",
+                "createLabel": "Créer un nouveau Dentist Next Visit",
+                "createOrEditLabel": "Créer ou éditer un Dentist Next Visit"
+            },
+            "created": "Un nouveau Dentist Next Visit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Dentist Next Visit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Dentist Next Visit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Dentist Next Visit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Dentist Next Visit"
+            },
+            "userid": "Userid",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

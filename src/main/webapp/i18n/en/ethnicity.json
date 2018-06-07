@@ -1,0 +1,16 @@
+{
+    "hcPortalApp": {
+        "Ethnicity" : {
+            "null": "",
+            "EUROPEAN": "EUROPEAN",
+            "MAORI": "MAORI",
+            "PACIFIC_PEOPLES": "PACIFIC_PEOPLES",
+            "ASIAN": "ASIAN",
+            "MIDDLE_EASTERN": "MIDDLE_EASTERN",
+            "LATIN_AMERICAN": "LATIN_AMERICAN",
+            "AFRICAN": "AFRICAN",
+            "OTHER_ETHNICITY": "OTHER_ETHNICITY",
+            "RESIDUAL_CATEGORIES": "RESIDUAL_CATEGORIES"
+        }
+    }
+}

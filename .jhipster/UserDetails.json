@@ -1,0 +1,65 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userid",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "activationkey",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "resetkey",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE"
+        },
+        {
+            "fieldName": "birthdate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ethnicity",
+            "fieldType": "Ethnicity",
+            "fieldValues": "EUROPEAN,MAORI,PACIFIC_PEOPLES,ASIAN,MIDDLE_EASTERN,LATIN_AMERICAN,AFRICAN,OTHER_ETHNICITY,RESIDUAL_CATEGORIES"
+        },
+        {
+            "fieldName": "maritalStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "isDoctor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "resetdate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180607110015",
+    "entityTableName": "user_details",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,161 @@
+entity UserDetails {
+	userid Integer required
+    activation_key String maxlength(20)
+    reset_key String maxlength(20)
+    gender Gender
+    birthdate LocalDate
+    ethnicity Ethnicity
+    maritalStatus String maxlength(50)
+    is_Doctor Boolean
+  	reset_date LocalDate
+}
+enum Gender{
+	MALE, FEMALE
+}
+
+enum Ethnicity{
+	EUROPEAN, MAORI, PACIFIC_PEOPLES, ASIAN, MIDDLE_EASTERN, LATIN_AMERICAN, AFRICAN, OTHER_ETHNICITY, RESIDUAL_CATEGORIES
+}
+
+
+entity VsSpo2 {
+	userid String required
+  	percent Double required
+ 	measurment_date LocalDate required
+}
+
+entity VsRespiratoryRate {
+	userid String required
+  	bpm Double required
+ 	measurment_date LocalDate required
+}
+entity VsHeartRate {
+	userid String required
+  	bpm Double required
+ 	measurment_date LocalDate required
+}
+
+entity VsBodyTemperature {
+	userid String required
+  	celsius Double required
+ 	measurment_date LocalDate required
+}
+
+entity VsBloodPressure {
+	userid String required
+  	systolic Double required
+    diastolic Double required
+ 	measurment_date LocalDate required
+}
+
+entity MenstrualCycle {
+	userid String required
+ 	startDate LocalDate required
+    endDate LocalDate required
+}
+
+
+entity DiabetesSugarTest {
+	userid String required
+  	result Double required
+ 	measurment_date LocalDate required
+}
+
+entity BloodTest {
+  userid String required
+  Hydroxyprogesterone_17 Double
+  Hydroxyvitamin_D_25 Double 
+  Acetoacetate Double 
+  Acidity Double 
+  Alcohol Double 
+  Ammonia Double 
+  Amylase Double 
+  Ascorbic_Acid Double 
+  Bicarbonate Double 
+  Bilirubin Double 
+  Blood_Volume Double 
+  Calcium Double 
+  Carbon_Dioxide_Pressure Double 
+  Carbon_Monoxide Double 
+  CD4_Cell_Count Double 
+  Ceruloplasmin Double 
+  Chloride Double 
+  Complete_Blood_Cell_Count Double 
+  Copper Double 
+  Creatine_Kinase Double 
+  Creatine_Kinase_Isoenzymes Double 
+  Creatinine Double 
+  Electrolytes Double 
+  Erythrocyte_Sedimentation_Rate Double 
+  Glucose Double 
+  Hematocrit Double 
+  Hemoglobin Double 
+  Iron Double 
+  Iron_Binding_Capacity Double 
+  Lactate Double 
+  Lactic_Dehydrogenase Double 
+  Lead Double 
+  Lipase Double 
+  Zinc Double 
+  Lipids_Cholesterol Double 
+  Lipids_Triglycerides Double 
+  Magnesium Double 
+  Mean_Corpuscular_Hemoglobin Double 
+  Mean_Corpuscular_Hemoglobin_Concentration Double 
+  Mean_Corpuscular_Volume Double 
+  Osmolality Double 
+  Oxygen_Pressure Double 
+  Oxygen_Saturation Double 
+  Phosphatase_Prostatic Double 
+  Phosphatase Double 
+  Phosphorus Double 
+  Platelet_Count Double 
+  Potassium Double 
+  Prostate_Specific_Antigen Double 
+  Proteins_Total Double 
+  Proteins_Albumin Double 
+  Proteins_Globulin Double 
+  Prothrombin Double 
+  Pyruvic_Acid Double 
+  Red_Blood_Cell_Count Double 
+  Sodium Double 
+  Thyroid_Stimulating_Hormone Double 
+  Transaminase_Alanine Double 
+  Transaminase_Aspartate Double 
+  Urea_Nitrogen Double 
+  BUN_Creatinine_Ratio Double 
+  Uric_Acid Double 
+  Vitamin_A Double 
+  WBC Double 
+  White_Blood_Cell_Count Double 
+  measurment_date LocalDate
+}
+
+entity DentistVisit{
+  userid String required
+  teeth_cleaning Boolean
+  whitening Boolean
+  restoration Boolean
+  crowns Boolean
+  bridges Boolean
+  braces Boolean
+  endodontic_therapy Boolean
+  periodontal_therapy Boolean
+  extraction Boolean
+  oral_surgery Boolean
+  notes String
+  measurment_date LocalDate
+}
+
+entity DentistNextVisit {
+	userid String required
+ 	measurment_date LocalDate required
+}
+
+// Set pagination options
+paginate all with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

@@ -1,0 +1,101 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDentistVisitLabel" jhiTranslate="hcPortalApp.dentistVisit.home.createOrEditLabel">Create or edit a Dentist Visit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dentistVisit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dentistVisit.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.userid" for="field_userid">Userid</label>
+            <input type="text" class="form-control" name="userid" id="field_userid"
+                [(ngModel)]="dentistVisit.userid" required/>
+            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.teethcleaning" for="field_teethcleaning">Teethcleaning</label>
+            <input type="checkbox" class="form-control" name="teethcleaning" id="field_teethcleaning"
+                [(ngModel)]="dentistVisit.teethcleaning" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.whitening" for="field_whitening">Whitening</label>
+            <input type="checkbox" class="form-control" name="whitening" id="field_whitening"
+                [(ngModel)]="dentistVisit.whitening" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.restoration" for="field_restoration">Restoration</label>
+            <input type="checkbox" class="form-control" name="restoration" id="field_restoration"
+                [(ngModel)]="dentistVisit.restoration" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.crowns" for="field_crowns">Crowns</label>
+            <input type="checkbox" class="form-control" name="crowns" id="field_crowns"
+                [(ngModel)]="dentistVisit.crowns" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.bridges" for="field_bridges">Bridges</label>
+            <input type="checkbox" class="form-control" name="bridges" id="field_bridges"
+                [(ngModel)]="dentistVisit.bridges" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.braces" for="field_braces">Braces</label>
+            <input type="checkbox" class="form-control" name="braces" id="field_braces"
+                [(ngModel)]="dentistVisit.braces" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.endodontictherapy" for="field_endodontictherapy">Endodontictherapy</label>
+            <input type="checkbox" class="form-control" name="endodontictherapy" id="field_endodontictherapy"
+                [(ngModel)]="dentistVisit.endodontictherapy" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.periodontaltherapy" for="field_periodontaltherapy">Periodontaltherapy</label>
+            <input type="checkbox" class="form-control" name="periodontaltherapy" id="field_periodontaltherapy"
+                [(ngModel)]="dentistVisit.periodontaltherapy" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.extraction" for="field_extraction">Extraction</label>
+            <input type="checkbox" class="form-control" name="extraction" id="field_extraction"
+                [(ngModel)]="dentistVisit.extraction" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.oralsurgery" for="field_oralsurgery">Oralsurgery</label>
+            <input type="checkbox" class="form-control" name="oralsurgery" id="field_oralsurgery"
+                [(ngModel)]="dentistVisit.oralsurgery" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.notes" for="field_notes">Notes</label>
+            <input type="text" class="form-control" name="notes" id="field_notes"
+                [(ngModel)]="dentistVisit.notes" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.measurmentdate" for="field_measurmentdate">Measurmentdate</label>
+            <div class="input-group">
+                <input id="field_measurmentdate" type="text" class="form-control" name="measurmentdate" ngbDatepicker  #measurmentdateDp="ngbDatepicker" [(ngModel)]="dentistVisit.measurmentdate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="measurmentdateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

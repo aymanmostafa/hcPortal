@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "vsRespiratoryRate" : {
+            "home": {
+                "title": "VsRespiratoryRates",
+                "createLabel": "Créer un nouveau Vs Respiratory Rate",
+                "createOrEditLabel": "Créer ou éditer un Vs Respiratory Rate"
+            },
+            "created": "Un nouveau Vs Respiratory Rate a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Vs Respiratory Rate avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Vs Respiratory Rate avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Vs Respiratory Rate {{ id }} ?"
+            },
+            "detail": {
+                "title": "Vs Respiratory Rate"
+            },
+            "userid": "Userid",
+            "bpm": "Bpm",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

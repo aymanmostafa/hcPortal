@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "vsSpo2" : {
+            "home": {
+                "title": "Vs Spo 2 S",
+                "createLabel": "Create a new Vs Spo 2",
+                "createOrEditLabel": "Create or edit a Vs Spo 2"
+            },
+            "created": "A new Vs Spo 2 is created with identifier {{ param }}",
+            "updated": "A Vs Spo 2 is updated with identifier {{ param }}",
+            "deleted": "A Vs Spo 2 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vs Spo 2 {{ id }}?"
+            },
+            "detail": {
+                "title": "Vs Spo 2"
+            },
+            "userid": "Userid",
+            "percent": "Percent",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+
+{
+    "hcPortalApp": {
+        "dentistNextVisit" : {
+            "home": {
+                "title": "Dentist Next Visits",
+                "createLabel": "Create a new Dentist Next Visit",
+                "createOrEditLabel": "Create or edit a Dentist Next Visit"
+            },
+            "created": "A new Dentist Next Visit is created with identifier {{ param }}",
+            "updated": "A Dentist Next Visit is updated with identifier {{ param }}",
+            "deleted": "A Dentist Next Visit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dentist Next Visit {{ id }}?"
+            },
+            "detail": {
+                "title": "Dentist Next Visit"
+            },
+            "userid": "Userid",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

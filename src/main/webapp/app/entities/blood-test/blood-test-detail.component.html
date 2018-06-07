@@ -1,0 +1,290 @@
+
+<div *ngIf="bloodTest">
+    <h2><span jhiTranslate="hcPortalApp.bloodTest.detail.title">Blood Test</span> {{bloodTest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.userid">Userid</span></dt>
+        <dd>
+            <span>{{bloodTest.userid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.hydroxyprogesterone17">Hydroxyprogesterone 17</span></dt>
+        <dd>
+            <span>{{bloodTest.hydroxyprogesterone17}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.hydroxyvitaminD25">Hydroxyvitamin D 25</span></dt>
+        <dd>
+            <span>{{bloodTest.hydroxyvitaminD25}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.acetoacetate">Acetoacetate</span></dt>
+        <dd>
+            <span>{{bloodTest.acetoacetate}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.acidity">Acidity</span></dt>
+        <dd>
+            <span>{{bloodTest.acidity}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.alcohol">Alcohol</span></dt>
+        <dd>
+            <span>{{bloodTest.alcohol}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.ammonia">Ammonia</span></dt>
+        <dd>
+            <span>{{bloodTest.ammonia}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.amylase">Amylase</span></dt>
+        <dd>
+            <span>{{bloodTest.amylase}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.ascorbicAcid">Ascorbic Acid</span></dt>
+        <dd>
+            <span>{{bloodTest.ascorbicAcid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.bicarbonate">Bicarbonate</span></dt>
+        <dd>
+            <span>{{bloodTest.bicarbonate}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.bilirubin">Bilirubin</span></dt>
+        <dd>
+            <span>{{bloodTest.bilirubin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.bloodVolume">Blood Volume</span></dt>
+        <dd>
+            <span>{{bloodTest.bloodVolume}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.calcium">Calcium</span></dt>
+        <dd>
+            <span>{{bloodTest.calcium}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.carbonDioxidePressure">Carbon Dioxide Pressure</span></dt>
+        <dd>
+            <span>{{bloodTest.carbonDioxidePressure}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.carbonMonoxide">Carbon Monoxide</span></dt>
+        <dd>
+            <span>{{bloodTest.carbonMonoxide}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.cD4CellCount">C D 4 Cell Count</span></dt>
+        <dd>
+            <span>{{bloodTest.cD4CellCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.ceruloplasmin">Ceruloplasmin</span></dt>
+        <dd>
+            <span>{{bloodTest.ceruloplasmin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.chloride">Chloride</span></dt>
+        <dd>
+            <span>{{bloodTest.chloride}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.completeBloodCellCount">Complete Blood Cell Count</span></dt>
+        <dd>
+            <span>{{bloodTest.completeBloodCellCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.copper">Copper</span></dt>
+        <dd>
+            <span>{{bloodTest.copper}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.creatineKinase">Creatine Kinase</span></dt>
+        <dd>
+            <span>{{bloodTest.creatineKinase}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.creatineKinaseIsoenzymes">Creatine Kinase Isoenzymes</span></dt>
+        <dd>
+            <span>{{bloodTest.creatineKinaseIsoenzymes}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.creatinine">Creatinine</span></dt>
+        <dd>
+            <span>{{bloodTest.creatinine}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.electrolytes">Electrolytes</span></dt>
+        <dd>
+            <span>{{bloodTest.electrolytes}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.erythrocyteSedimentationRate">Erythrocyte Sedimentation Rate</span></dt>
+        <dd>
+            <span>{{bloodTest.erythrocyteSedimentationRate}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.glucose">Glucose</span></dt>
+        <dd>
+            <span>{{bloodTest.glucose}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.hematocrit">Hematocrit</span></dt>
+        <dd>
+            <span>{{bloodTest.hematocrit}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.hemoglobin">Hemoglobin</span></dt>
+        <dd>
+            <span>{{bloodTest.hemoglobin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.iron">Iron</span></dt>
+        <dd>
+            <span>{{bloodTest.iron}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.ironBindingCapacity">Iron Binding Capacity</span></dt>
+        <dd>
+            <span>{{bloodTest.ironBindingCapacity}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lactate">Lactate</span></dt>
+        <dd>
+            <span>{{bloodTest.lactate}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lacticDehydrogenase">Lactic Dehydrogenase</span></dt>
+        <dd>
+            <span>{{bloodTest.lacticDehydrogenase}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lead">Lead</span></dt>
+        <dd>
+            <span>{{bloodTest.lead}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lipase">Lipase</span></dt>
+        <dd>
+            <span>{{bloodTest.lipase}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.zinc">Zinc</span></dt>
+        <dd>
+            <span>{{bloodTest.zinc}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lipidsCholesterol">Lipids Cholesterol</span></dt>
+        <dd>
+            <span>{{bloodTest.lipidsCholesterol}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.lipidsTriglycerides">Lipids Triglycerides</span></dt>
+        <dd>
+            <span>{{bloodTest.lipidsTriglycerides}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.magnesium">Magnesium</span></dt>
+        <dd>
+            <span>{{bloodTest.magnesium}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularHemoglobin">Mean Corpuscular Hemoglobin</span></dt>
+        <dd>
+            <span>{{bloodTest.meanCorpuscularHemoglobin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularHemoglobinConcentration">Mean Corpuscular Hemoglobin Concentration</span></dt>
+        <dd>
+            <span>{{bloodTest.meanCorpuscularHemoglobinConcentration}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.meanCorpuscularVolume">Mean Corpuscular Volume</span></dt>
+        <dd>
+            <span>{{bloodTest.meanCorpuscularVolume}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.osmolality">Osmolality</span></dt>
+        <dd>
+            <span>{{bloodTest.osmolality}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.oxygenPressure">Oxygen Pressure</span></dt>
+        <dd>
+            <span>{{bloodTest.oxygenPressure}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.oxygenSaturation">Oxygen Saturation</span></dt>
+        <dd>
+            <span>{{bloodTest.oxygenSaturation}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.phosphataseProstatic">Phosphatase Prostatic</span></dt>
+        <dd>
+            <span>{{bloodTest.phosphataseProstatic}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.phosphatase">Phosphatase</span></dt>
+        <dd>
+            <span>{{bloodTest.phosphatase}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.phosphorus">Phosphorus</span></dt>
+        <dd>
+            <span>{{bloodTest.phosphorus}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.plateletCount">Platelet Count</span></dt>
+        <dd>
+            <span>{{bloodTest.plateletCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.potassium">Potassium</span></dt>
+        <dd>
+            <span>{{bloodTest.potassium}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.prostateSpecificAntigen">Prostate Specific Antigen</span></dt>
+        <dd>
+            <span>{{bloodTest.prostateSpecificAntigen}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.proteinsTotal">Proteins Total</span></dt>
+        <dd>
+            <span>{{bloodTest.proteinsTotal}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.proteinsAlbumin">Proteins Albumin</span></dt>
+        <dd>
+            <span>{{bloodTest.proteinsAlbumin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.proteinsGlobulin">Proteins Globulin</span></dt>
+        <dd>
+            <span>{{bloodTest.proteinsGlobulin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.prothrombin">Prothrombin</span></dt>
+        <dd>
+            <span>{{bloodTest.prothrombin}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.pyruvicAcid">Pyruvic Acid</span></dt>
+        <dd>
+            <span>{{bloodTest.pyruvicAcid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.redBloodCellCount">Red Blood Cell Count</span></dt>
+        <dd>
+            <span>{{bloodTest.redBloodCellCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.sodium">Sodium</span></dt>
+        <dd>
+            <span>{{bloodTest.sodium}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.thyroidStimulatingHormone">Thyroid Stimulating Hormone</span></dt>
+        <dd>
+            <span>{{bloodTest.thyroidStimulatingHormone}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.transaminaseAlanine">Transaminase Alanine</span></dt>
+        <dd>
+            <span>{{bloodTest.transaminaseAlanine}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.transaminaseAspartate">Transaminase Aspartate</span></dt>
+        <dd>
+            <span>{{bloodTest.transaminaseAspartate}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.ureaNitrogen">Urea Nitrogen</span></dt>
+        <dd>
+            <span>{{bloodTest.ureaNitrogen}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.bUNCreatinineRatio">B UN Creatinine Ratio</span></dt>
+        <dd>
+            <span>{{bloodTest.bUNCreatinineRatio}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.uricAcid">Uric Acid</span></dt>
+        <dd>
+            <span>{{bloodTest.uricAcid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.vitaminA">Vitamin A</span></dt>
+        <dd>
+            <span>{{bloodTest.vitaminA}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.wBC">W BC</span></dt>
+        <dd>
+            <span>{{bloodTest.wBC}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.whiteBloodCellCount">White Blood Cell Count</span></dt>
+        <dd>
+            <span>{{bloodTest.whiteBloodCellCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.bloodTest.measurmentdate">Measurmentdate</span></dt>
+        <dd>
+            <span>{{bloodTest.measurmentdate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'blood-test/'+ bloodTest.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

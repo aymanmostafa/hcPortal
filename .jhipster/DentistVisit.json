@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "teethcleaning",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "whitening",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "restoration",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "crowns",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "bridges",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "braces",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "endodontictherapy",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "periodontaltherapy",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "extraction",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "oralsurgery",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "measurmentdate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180607110024",
+    "entityTableName": "dentist_visit",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,34 @@
+
+{
+    "hcPortalApp": {
+        "dentistVisit" : {
+            "home": {
+                "title": "DentistVisits",
+                "createLabel": "Créer un nouveau Dentist Visit",
+                "createOrEditLabel": "Créer ou éditer un Dentist Visit"
+            },
+            "created": "Un nouveau Dentist Visit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Dentist Visit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Dentist Visit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Dentist Visit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Dentist Visit"
+            },
+            "userid": "Userid",
+            "teethcleaning": "Teethcleaning",
+            "whitening": "Whitening",
+            "restoration": "Restoration",
+            "crowns": "Crowns",
+            "bridges": "Bridges",
+            "braces": "Braces",
+            "endodontictherapy": "Endodontictherapy",
+            "periodontaltherapy": "Periodontaltherapy",
+            "extraction": "Extraction",
+            "oralsurgery": "Oralsurgery",
+            "notes": "Notes",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

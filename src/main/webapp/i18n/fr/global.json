@@ -7,6 +7,17 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
+                "userDetails": "User Details",
+                "vsSpo2": "Vs Spo 2",
+                "vsRespiratoryRate": "Vs Respiratory Rate",
+                "vsHeartRate": "Vs Heart Rate",
+                "vsBodyTemperature": "Vs Body Temperature",
+                "vsBloodPressure": "Vs Blood Pressure",
+                "menstrualCycle": "Menstrual Cycle",
+                "diabetesSugarTest": "Diabetes Sugar Test",
+                "bloodTest": "Blood Test",
+                "dentistVisit": "Dentist Visit",
+                "dentistNextVisit": "Dentist Next Visit",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

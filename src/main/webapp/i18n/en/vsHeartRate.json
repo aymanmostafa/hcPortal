@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "vsHeartRate" : {
+            "home": {
+                "title": "Vs Heart Rates",
+                "createLabel": "Create a new Vs Heart Rate",
+                "createOrEditLabel": "Create or edit a Vs Heart Rate"
+            },
+            "created": "A new Vs Heart Rate is created with identifier {{ param }}",
+            "updated": "A Vs Heart Rate is updated with identifier {{ param }}",
+            "deleted": "A Vs Heart Rate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vs Heart Rate {{ id }}?"
+            },
+            "detail": {
+                "title": "Vs Heart Rate"
+            },
+            "userid": "Userid",
+            "bpm": "Bpm",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

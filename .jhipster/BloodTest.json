@@ -1,0 +1,283 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "hydroxyprogesterone17",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hydroxyvitaminD25",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "acetoacetate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "acidity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "alcohol",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ammonia",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "amylase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ascorbicAcid",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bicarbonate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bilirubin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bloodVolume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "calcium",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "carbonDioxidePressure",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "carbonMonoxide",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cD4CellCount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ceruloplasmin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "chloride",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "completeBloodCellCount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "copper",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "creatineKinase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "creatineKinaseIsoenzymes",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "creatinine",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "electrolytes",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "erythrocyteSedimentationRate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "glucose",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hematocrit",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "hemoglobin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "iron",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ironBindingCapacity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lactate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lacticDehydrogenase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lead",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lipase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "zinc",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lipidsCholesterol",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lipidsTriglycerides",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "magnesium",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "meanCorpuscularHemoglobin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "meanCorpuscularHemoglobinConcentration",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "meanCorpuscularVolume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "osmolality",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "oxygenPressure",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "oxygenSaturation",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "phosphataseProstatic",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "phosphatase",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "phosphorus",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "plateletCount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "potassium",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "prostateSpecificAntigen",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proteinsTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proteinsAlbumin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proteinsGlobulin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "prothrombin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pyruvicAcid",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "redBloodCellCount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "sodium",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "thyroidStimulatingHormone",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "transaminaseAlanine",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "transaminaseAspartate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ureaNitrogen",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bUNCreatinineRatio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "uricAcid",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "vitaminA",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "wBC",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "whiteBloodCellCount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "measurmentdate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180607110023",
+    "entityTableName": "blood_test",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

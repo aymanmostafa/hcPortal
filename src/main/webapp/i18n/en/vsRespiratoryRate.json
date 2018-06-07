@@ -1,0 +1,24 @@
+
+{
+    "hcPortalApp": {
+        "vsRespiratoryRate" : {
+            "home": {
+                "title": "Vs Respiratory Rates",
+                "createLabel": "Create a new Vs Respiratory Rate",
+                "createOrEditLabel": "Create or edit a Vs Respiratory Rate"
+            },
+            "created": "A new Vs Respiratory Rate is created with identifier {{ param }}",
+            "updated": "A Vs Respiratory Rate is updated with identifier {{ param }}",
+            "deleted": "A Vs Respiratory Rate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vs Respiratory Rate {{ id }}?"
+            },
+            "detail": {
+                "title": "Vs Respiratory Rate"
+            },
+            "userid": "Userid",
+            "bpm": "Bpm",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

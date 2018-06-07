@@ -1,0 +1,25 @@
+
+{
+    "hcPortalApp": {
+        "vsBloodPressure" : {
+            "home": {
+                "title": "Vs Blood Pressures",
+                "createLabel": "Create a new Vs Blood Pressure",
+                "createOrEditLabel": "Create or edit a Vs Blood Pressure"
+            },
+            "created": "A new Vs Blood Pressure is created with identifier {{ param }}",
+            "updated": "A Vs Blood Pressure is updated with identifier {{ param }}",
+            "deleted": "A Vs Blood Pressure is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vs Blood Pressure {{ id }}?"
+            },
+            "detail": {
+                "title": "Vs Blood Pressure"
+            },
+            "userid": "Userid",
+            "systolic": "Systolic",
+            "diastolic": "Diastolic",
+            "measurmentdate": "Measurmentdate"
+        }
+    }
+}

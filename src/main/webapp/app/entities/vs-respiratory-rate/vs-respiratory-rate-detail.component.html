@@ -1,0 +1,34 @@
+
+<div *ngIf="vsRespiratoryRate">
+    <h2><span jhiTranslate="hcPortalApp.vsRespiratoryRate.detail.title">Vs Respiratory Rate</span> {{vsRespiratoryRate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hcPortalApp.vsRespiratoryRate.userid">Userid</span></dt>
+        <dd>
+            <span>{{vsRespiratoryRate.userid}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.vsRespiratoryRate.bpm">Bpm</span></dt>
+        <dd>
+            <span>{{vsRespiratoryRate.bpm}}</span>
+        </dd>
+        <dt><span jhiTranslate="hcPortalApp.vsRespiratoryRate.measurmentdate">Measurmentdate</span></dt>
+        <dd>
+            <span>{{vsRespiratoryRate.measurmentdate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vs-respiratory-rate/'+ vsRespiratoryRate.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
