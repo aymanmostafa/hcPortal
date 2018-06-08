@@ -13,17 +13,6 @@
                    [(ngModel)]="dentistNextVisit.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistNextVisit.userid" for="field_userid">Userid</label>
-            <input type="text" class="form-control" name="userid" id="field_userid"
-                [(ngModel)]="dentistNextVisit.userid" required/>
-            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="hcPortalApp.dentistNextVisit.measurmentdate" for="field_measurmentdate">Measurmentdate</label>
             <div class="input-group">
                 <input id="field_measurmentdate" type="text" class="form-control" name="measurmentdate" ngbDatepicker  #measurmentdateDp="ngbDatepicker" [(ngModel)]="dentistNextVisit.measurmentdate"

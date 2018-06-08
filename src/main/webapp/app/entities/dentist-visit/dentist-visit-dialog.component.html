@@ -13,17 +13,6 @@
                    [(ngModel)]="dentistVisit.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.userid" for="field_userid">Userid</label>
-            <input type="text" class="form-control" name="userid" id="field_userid"
-                [(ngModel)]="dentistVisit.userid" required/>
-            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.teethcleaning" for="field_teethcleaning">Teethcleaning</label>
             <input type="checkbox" class="form-control" name="teethcleaning" id="field_teethcleaning"
                 [(ngModel)]="dentistVisit.teethcleaning" />
@@ -79,16 +68,21 @@
                 [(ngModel)]="dentistVisit.notes" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistVisit.measurmentdate" for="field_measurmentdate">Measurmentdate</label>
+            <label class="form-control-label" jhiTranslate="hcPortalApp.dentistNextVisit.measurmentdate" for="field_measurmentdate">Measurmentdate</label>
             <div class="input-group">
                 <input id="field_measurmentdate" type="text" class="form-control" name="measurmentdate" ngbDatepicker  #measurmentdateDp="ngbDatepicker" [(ngModel)]="dentistVisit.measurmentdate"
-                />
+                       required/>
                 <span class="input-group-append">
                     <button type="button" class="btn btn-secondary" (click)="measurmentdateDp.toggle()"><i class="fa fa-calendar"></i></button>
                 </span>
             </div>
+            <div [hidden]="!(editForm.controls.measurmentdate?.dirty && editForm.controls.measurmentdate?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.measurmentdate?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
         </div>
-
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

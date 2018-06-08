@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.vsSpo2.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="percent"><span jhiTranslate="hcPortalApp.vsSpo2.percent">Percent</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="measurmentdate"><span jhiTranslate="hcPortalApp.vsSpo2.measurmentdate">Measurmentdate</span> <span class="fa fa-sort"></span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let vsSpo2 of vsSpo2S ;trackBy: trackId">
-                <td><a [routerLink]="['../vs-spo-2', vsSpo2.id ]">{{vsSpo2.id}}</a></td>
                 <td>{{vsSpo2.userid}}</td>
                 <td>{{vsSpo2.percent}}</td>
                 <td>{{vsSpo2.measurmentdate | date:'mediumDate'}}</td>

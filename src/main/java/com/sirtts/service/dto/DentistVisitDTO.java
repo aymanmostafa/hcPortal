@@ -13,7 +13,6 @@ public class DentistVisitDTO implements Serializable {
 
     private String id;
 
-    @NotNull
     private String userid;
 
     private Boolean teethcleaning;
@@ -38,6 +37,7 @@ public class DentistVisitDTO implements Serializable {
 
     private String notes;
 
+    @NotNull
     private LocalDate measurmentdate;
 
     public String getId() {

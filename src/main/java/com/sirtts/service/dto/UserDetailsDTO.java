@@ -15,8 +15,7 @@ public class UserDetailsDTO implements Serializable {
 
     private String id;
 
-    @NotNull
-    private Integer userid;
+    private String userid;
 
     @Size(max = 20)
     private String activationkey;
@@ -45,11 +44,11 @@ public class UserDetailsDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 

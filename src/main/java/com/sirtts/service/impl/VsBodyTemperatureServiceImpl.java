@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.VsBodyTemperatureService;
 import com.sirtts.domain.VsBodyTemperature;
 import com.sirtts.repository.VsBodyTemperatureRepository;
@@ -38,6 +39,9 @@ public class VsBodyTemperatureServiceImpl implements VsBodyTemperatureService {
     @Override
     public VsBodyTemperatureDTO save(VsBodyTemperatureDTO vsBodyTemperatureDTO) {
         log.debug("Request to save VsBodyTemperature : {}", vsBodyTemperatureDTO);
+        if(vsBodyTemperatureDTO.getUserid() == null){
+            vsBodyTemperatureDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         VsBodyTemperature vsBodyTemperature = vsBodyTemperatureMapper.toEntity(vsBodyTemperatureDTO);
         vsBodyTemperature = vsBodyTemperatureRepository.save(vsBodyTemperature);
         return vsBodyTemperatureMapper.toDto(vsBodyTemperature);

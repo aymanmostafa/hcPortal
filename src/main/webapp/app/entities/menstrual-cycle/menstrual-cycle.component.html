@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.menstrualCycle.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="startDate"><span jhiTranslate="hcPortalApp.menstrualCycle.startDate">Start Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="endDate"><span jhiTranslate="hcPortalApp.menstrualCycle.endDate">End Date</span> <span class="fa fa-sort"></span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let menstrualCycle of menstrualCycles ;trackBy: trackId">
-                <td><a [routerLink]="['../menstrual-cycle', menstrualCycle.id ]">{{menstrualCycle.id}}</a></td>
                 <td>{{menstrualCycle.userid}}</td>
                 <td>{{menstrualCycle.startDate | date:'mediumDate'}}</td>
                 <td>{{menstrualCycle.endDate | date:'mediumDate'}}</td>

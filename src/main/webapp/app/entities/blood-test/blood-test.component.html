@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.bloodTest.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="hydroxyprogesterone17"><span jhiTranslate="hcPortalApp.bloodTest.hydroxyprogesterone17">Hydroxyprogesterone 17</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="hydroxyvitaminD25"><span jhiTranslate="hcPortalApp.bloodTest.hydroxyvitaminD25">Hydroxyvitamin D 25</span> <span class="fa fa-sort"></span></th>
@@ -89,7 +88,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let bloodTest of bloodTests ;trackBy: trackId">
-                <td><a [routerLink]="['../blood-test', bloodTest.id ]">{{bloodTest.id}}</a></td>
                 <td>{{bloodTest.userid}}</td>
                 <td>{{bloodTest.hydroxyprogesterone17}}</td>
                 <td>{{bloodTest.hydroxyvitaminD25}}</td>

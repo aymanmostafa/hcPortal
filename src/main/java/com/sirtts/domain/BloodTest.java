@@ -20,7 +20,6 @@ public class BloodTest implements Serializable {
     @Id
     private String id;
 
-    @NotNull
     @Field("userid")
     private String userid;
 
@@ -219,6 +218,7 @@ public class BloodTest implements Serializable {
     @Field("white_blood_cell_count")
     private Double whiteBloodCellCount;
 
+    @NotNull
     @Field("measurmentdate")
     private LocalDate measurmentdate;
 

@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.VsBloodPressureService;
 import com.sirtts.domain.VsBloodPressure;
 import com.sirtts.repository.VsBloodPressureRepository;
@@ -38,6 +39,9 @@ public class VsBloodPressureServiceImpl implements VsBloodPressureService {
     @Override
     public VsBloodPressureDTO save(VsBloodPressureDTO vsBloodPressureDTO) {
         log.debug("Request to save VsBloodPressure : {}", vsBloodPressureDTO);
+        if(vsBloodPressureDTO.getUserid() == null){
+            vsBloodPressureDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         VsBloodPressure vsBloodPressure = vsBloodPressureMapper.toEntity(vsBloodPressureDTO);
         vsBloodPressure = vsBloodPressureRepository.save(vsBloodPressure);
         return vsBloodPressureMapper.toDto(vsBloodPressure);

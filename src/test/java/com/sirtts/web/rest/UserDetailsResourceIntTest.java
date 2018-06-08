@@ -43,8 +43,8 @@ import com.sirtts.domain.enumeration.Ethnicity;
 @SpringBootTest(classes = HcPortalApp.class)
 public class UserDetailsResourceIntTest {
 
-    private static final Integer DEFAULT_USERID = 1;
-    private static final Integer UPDATED_USERID = 2;
+    private static final String DEFAULT_USERID = "1";
+    private static final String UPDATED_USERID = "2";
 
     private static final String DEFAULT_ACTIVATIONKEY = "AAAAAAAAAA";
     private static final String UPDATED_ACTIVATIONKEY = "BBBBBBBBBB";

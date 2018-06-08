@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.vsBodyTemperature.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="celsius"><span jhiTranslate="hcPortalApp.vsBodyTemperature.celsius">Celsius</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="measurmentdate"><span jhiTranslate="hcPortalApp.vsBodyTemperature.measurmentdate">Measurmentdate</span> <span class="fa fa-sort"></span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let vsBodyTemperature of vsBodyTemperatures ;trackBy: trackId">
-                <td><a [routerLink]="['../vs-body-temperature', vsBodyTemperature.id ]">{{vsBodyTemperature.id}}</a></td>
                 <td>{{vsBodyTemperature.userid}}</td>
                 <td>{{vsBodyTemperature.celsius}}</td>
                 <td>{{vsBodyTemperature.measurmentdate | date:'mediumDate'}}</td>

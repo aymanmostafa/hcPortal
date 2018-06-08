@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.DentistVisitService;
 import com.sirtts.domain.DentistVisit;
 import com.sirtts.repository.DentistVisitRepository;
@@ -38,6 +39,9 @@ public class DentistVisitServiceImpl implements DentistVisitService {
     @Override
     public DentistVisitDTO save(DentistVisitDTO dentistVisitDTO) {
         log.debug("Request to save DentistVisit : {}", dentistVisitDTO);
+        if(dentistVisitDTO.getUserid() == null){
+            dentistVisitDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         DentistVisit dentistVisit = dentistVisitMapper.toEntity(dentistVisitDTO);
         dentistVisit = dentistVisitRepository.save(dentistVisit);
         return dentistVisitMapper.toDto(dentistVisit);

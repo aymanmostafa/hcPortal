@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.VsRespiratoryRateService;
 import com.sirtts.domain.VsRespiratoryRate;
 import com.sirtts.repository.VsRespiratoryRateRepository;
@@ -38,6 +39,9 @@ public class VsRespiratoryRateServiceImpl implements VsRespiratoryRateService {
     @Override
     public VsRespiratoryRateDTO save(VsRespiratoryRateDTO vsRespiratoryRateDTO) {
         log.debug("Request to save VsRespiratoryRate : {}", vsRespiratoryRateDTO);
+        if(vsRespiratoryRateDTO.getUserid() == null){
+            vsRespiratoryRateDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         VsRespiratoryRate vsRespiratoryRate = vsRespiratoryRateMapper.toEntity(vsRespiratoryRateDTO);
         vsRespiratoryRate = vsRespiratoryRateRepository.save(vsRespiratoryRate);
         return vsRespiratoryRateMapper.toDto(vsRespiratoryRate);

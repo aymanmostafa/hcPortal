@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.vsHeartRate.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="bpm"><span jhiTranslate="hcPortalApp.vsHeartRate.bpm">Bpm</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="measurmentdate"><span jhiTranslate="hcPortalApp.vsHeartRate.measurmentdate">Measurmentdate</span> <span class="fa fa-sort"></span></th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let vsHeartRate of vsHeartRates ;trackBy: trackId">
-                <td><a [routerLink]="['../vs-heart-rate', vsHeartRate.id ]">{{vsHeartRate.id}}</a></td>
                 <td>{{vsHeartRate.userid}}</td>
                 <td>{{vsHeartRate.bpm}}</td>
                 <td>{{vsHeartRate.measurmentdate | date:'mediumDate'}}</td>

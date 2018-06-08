@@ -13,17 +13,6 @@
                    [(ngModel)]="menstrualCycle.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hcPortalApp.menstrualCycle.userid" for="field_userid">Userid</label>
-            <input type="text" class="form-control" name="userid" id="field_userid"
-                [(ngModel)]="menstrualCycle.userid" required/>
-            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="hcPortalApp.menstrualCycle.startDate" for="field_startDate">Start Date</label>
             <div class="input-group">
                 <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="menstrualCycle.startDate"

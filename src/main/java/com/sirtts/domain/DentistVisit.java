@@ -20,7 +20,6 @@ public class DentistVisit implements Serializable {
     @Id
     private String id;
 
-    @NotNull
     @Field("userid")
     private String userid;
 
@@ -57,6 +56,7 @@ public class DentistVisit implements Serializable {
     @Field("notes")
     private String notes;
 
+    @NotNull
     @Field("measurmentdate")
     private LocalDate measurmentdate;
 

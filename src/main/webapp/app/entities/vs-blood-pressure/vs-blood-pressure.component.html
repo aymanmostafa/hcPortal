@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.vsBloodPressure.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="systolic"><span jhiTranslate="hcPortalApp.vsBloodPressure.systolic">Systolic</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="diastolic"><span jhiTranslate="hcPortalApp.vsBloodPressure.diastolic">Diastolic</span> <span class="fa fa-sort"></span></th>
@@ -26,7 +25,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let vsBloodPressure of vsBloodPressures ;trackBy: trackId">
-                <td><a [routerLink]="['../vs-blood-pressure', vsBloodPressure.id ]">{{vsBloodPressure.id}}</a></td>
                 <td>{{vsBloodPressure.userid}}</td>
                 <td>{{vsBloodPressure.systolic}}</td>
                 <td>{{vsBloodPressure.diastolic}}</td>

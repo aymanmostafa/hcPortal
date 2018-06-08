@@ -13,14 +13,13 @@ import java.util.Objects;
  * A DiabetesSugarTest.
  */
 @Document(collection = "diabetes_sugar_test")
-public class DiabetesSugarTest implements Serializable {
+public class DiabetesSugarTest implements Serializable  {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
 
-    @NotNull
     @Field("userid")
     private String userid;
 

@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.dentistNextVisit.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="measurmentdate"><span jhiTranslate="hcPortalApp.dentistNextVisit.measurmentdate">Measurmentdate</span> <span class="fa fa-sort"></span></th>
             <th></th>
@@ -24,7 +23,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let dentistNextVisit of dentistNextVisits ;trackBy: trackId">
-                <td><a [routerLink]="['../dentist-next-visit', dentistNextVisit.id ]">{{dentistNextVisit.id}}</a></td>
                 <td>{{dentistNextVisit.userid}}</td>
                 <td>{{dentistNextVisit.measurmentdate | date:'mediumDate'}}</td>
                 <td class="text-right">

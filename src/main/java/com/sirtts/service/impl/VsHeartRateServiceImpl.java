@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.VsHeartRateService;
 import com.sirtts.domain.VsHeartRate;
 import com.sirtts.repository.VsHeartRateRepository;
@@ -38,6 +39,9 @@ public class VsHeartRateServiceImpl implements VsHeartRateService {
     @Override
     public VsHeartRateDTO save(VsHeartRateDTO vsHeartRateDTO) {
         log.debug("Request to save VsHeartRate : {}", vsHeartRateDTO);
+        if(vsHeartRateDTO.getUserid() == null){
+            vsHeartRateDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         VsHeartRate vsHeartRate = vsHeartRateMapper.toEntity(vsHeartRateDTO);
         vsHeartRate = vsHeartRateRepository.save(vsHeartRate);
         return vsHeartRateMapper.toDto(vsHeartRate);

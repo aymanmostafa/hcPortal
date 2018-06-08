@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.VsSpo2Service;
 import com.sirtts.domain.VsSpo2;
 import com.sirtts.repository.VsSpo2Repository;
@@ -38,6 +39,9 @@ public class VsSpo2ServiceImpl implements VsSpo2Service {
     @Override
     public VsSpo2DTO save(VsSpo2DTO vsSpo2DTO) {
         log.debug("Request to save VsSpo2 : {}", vsSpo2DTO);
+        if(vsSpo2DTO.getUserid() == null){
+            vsSpo2DTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         VsSpo2 vsSpo2 = vsSpo2Mapper.toEntity(vsSpo2DTO);
         vsSpo2 = vsSpo2Repository.save(vsSpo2);
         return vsSpo2Mapper.toDto(vsSpo2);

@@ -13,7 +13,6 @@ public class VsSpo2DTO implements Serializable {
 
     private String id;
 
-    @NotNull
     private String userid;
 
     @NotNull

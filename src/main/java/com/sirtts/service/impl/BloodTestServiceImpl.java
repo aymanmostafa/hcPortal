@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.BloodTestService;
 import com.sirtts.domain.BloodTest;
 import com.sirtts.repository.BloodTestRepository;
@@ -38,6 +39,9 @@ public class BloodTestServiceImpl implements BloodTestService {
     @Override
     public BloodTestDTO save(BloodTestDTO bloodTestDTO) {
         log.debug("Request to save BloodTest : {}", bloodTestDTO);
+        if(bloodTestDTO.getUserid() == null){
+            bloodTestDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         BloodTest bloodTest = bloodTestMapper.toEntity(bloodTestDTO);
         bloodTest = bloodTestRepository.save(bloodTest);
         return bloodTestMapper.toDto(bloodTest);

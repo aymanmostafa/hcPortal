@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.MenstrualCycleService;
 import com.sirtts.domain.MenstrualCycle;
 import com.sirtts.repository.MenstrualCycleRepository;
@@ -38,6 +39,9 @@ public class MenstrualCycleServiceImpl implements MenstrualCycleService {
     @Override
     public MenstrualCycleDTO save(MenstrualCycleDTO menstrualCycleDTO) {
         log.debug("Request to save MenstrualCycle : {}", menstrualCycleDTO);
+        if(menstrualCycleDTO.getUserid() == null){
+            menstrualCycleDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         MenstrualCycle menstrualCycle = menstrualCycleMapper.toEntity(menstrualCycleDTO);
         menstrualCycle = menstrualCycleRepository.save(menstrualCycle);
         return menstrualCycleMapper.toDto(menstrualCycle);

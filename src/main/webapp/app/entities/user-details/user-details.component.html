@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userid"><span jhiTranslate="hcPortalApp.userDetails.userid">Userid</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="activationkey"><span jhiTranslate="hcPortalApp.userDetails.activationkey">Activationkey</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="resetkey"><span jhiTranslate="hcPortalApp.userDetails.resetkey">Resetkey</span> <span class="fa fa-sort"></span></th>
@@ -31,7 +30,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let userDetails of userDetails ;trackBy: trackId">
-                <td><a [routerLink]="['../user-details', userDetails.id ]">{{userDetails.id}}</a></td>
                 <td>{{userDetails.userid}}</td>
                 <td>{{userDetails.activationkey}}</td>
                 <td>{{userDetails.resetkey}}</td>

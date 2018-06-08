@@ -13,7 +13,6 @@ public class BloodTestDTO implements Serializable {
 
     private String id;
 
-    @NotNull
     private String userid;
 
     private Double hydroxyprogesterone17;
@@ -146,6 +145,7 @@ public class BloodTestDTO implements Serializable {
 
     private Double whiteBloodCellCount;
 
+    @NotNull
     private LocalDate measurmentdate;
 
     public String getId() {

@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.DiabetesSugarTestService;
 import com.sirtts.domain.DiabetesSugarTest;
 import com.sirtts.repository.DiabetesSugarTestRepository;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 /**
@@ -38,6 +41,9 @@ public class DiabetesSugarTestServiceImpl implements DiabetesSugarTestService {
     @Override
     public DiabetesSugarTestDTO save(DiabetesSugarTestDTO diabetesSugarTestDTO) {
         log.debug("Request to save DiabetesSugarTest : {}", diabetesSugarTestDTO);
+        if(diabetesSugarTestDTO.getUserid() == null){
+            diabetesSugarTestDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         DiabetesSugarTest diabetesSugarTest = diabetesSugarTestMapper.toEntity(diabetesSugarTestDTO);
         diabetesSugarTest = diabetesSugarTestRepository.save(diabetesSugarTest);
         return diabetesSugarTestMapper.toDto(diabetesSugarTest);

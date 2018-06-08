@@ -13,7 +13,6 @@ public class VsRespiratoryRateDTO implements Serializable {
 
     private String id;
 
-    @NotNull
     private String userid;
 
     @NotNull

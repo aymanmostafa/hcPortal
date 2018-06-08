@@ -20,7 +20,6 @@ public class DentistNextVisit implements Serializable {
     @Id
     private String id;
 
-    @NotNull
     @Field("userid")
     private String userid;
 

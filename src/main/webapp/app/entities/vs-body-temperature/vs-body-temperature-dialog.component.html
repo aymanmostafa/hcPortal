@@ -13,17 +13,6 @@
                    [(ngModel)]="vsBodyTemperature.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="hcPortalApp.vsBodyTemperature.userid" for="field_userid">Userid</label>
-            <input type="text" class="form-control" name="userid" id="field_userid"
-                [(ngModel)]="vsBodyTemperature.userid" required/>
-            <div [hidden]="!(editForm.controls.userid?.dirty && editForm.controls.userid?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.userid?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="hcPortalApp.vsBodyTemperature.celsius" for="field_celsius">Celsius</label>
             <input type="number" class="form-control" name="celsius" id="field_celsius"
                 [(ngModel)]="vsBodyTemperature.celsius" required/>

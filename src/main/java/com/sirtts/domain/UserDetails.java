@@ -24,9 +24,8 @@ public class UserDetails implements Serializable {
     @Id
     private String id;
 
-    @NotNull
     @Field("userid")
-    private Integer userid;
+    private String userid;
 
     @Size(max = 20)
     @Field("activationkey")
@@ -64,16 +63,16 @@ public class UserDetails implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public UserDetails userid(Integer userid) {
+    public UserDetails userid(String userid) {
         this.userid = userid;
         return this;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 

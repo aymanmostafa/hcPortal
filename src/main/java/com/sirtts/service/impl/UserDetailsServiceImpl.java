@@ -1,5 +1,6 @@
 package com.sirtts.service.impl;
 
+import com.sirtts.security.SecurityUtils;
 import com.sirtts.service.UserDetailsService;
 import com.sirtts.domain.UserDetails;
 import com.sirtts.repository.UserDetailsRepository;
@@ -38,6 +39,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetailsDTO save(UserDetailsDTO userDetailsDTO) {
         log.debug("Request to save UserDetails : {}", userDetailsDTO);
+        if(userDetailsDTO.getUserid() == null){
+            userDetailsDTO.setUserid(SecurityUtils.getCurrentUserLogin().get().toString());
+        }
         UserDetails userDetails = userDetailsMapper.toEntity(userDetailsDTO);
         userDetails = userDetailsRepository.save(userDetails);
         return userDetailsMapper.toDto(userDetails);
