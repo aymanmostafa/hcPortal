@@ -13,7 +13,7 @@ import java.util.Objects;
  * A VsHeartRate.
  */
 @Document(collection = "vs_heart_rate")
-public class VsHeartRate implements Serializable {
+public class VsHeartRate extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

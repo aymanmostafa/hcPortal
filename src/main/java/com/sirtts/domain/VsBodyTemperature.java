@@ -13,7 +13,7 @@ import java.util.Objects;
  * A VsBodyTemperature.
  */
 @Document(collection = "vs_body_temperature")
-public class VsBodyTemperature implements Serializable {
+public class VsBodyTemperature extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

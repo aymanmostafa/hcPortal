@@ -13,7 +13,7 @@ import java.util.Objects;
  * A MenstrualCycle.
  */
 @Document(collection = "menstrual_cycle")
-public class MenstrualCycle implements Serializable {
+public class MenstrualCycle extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

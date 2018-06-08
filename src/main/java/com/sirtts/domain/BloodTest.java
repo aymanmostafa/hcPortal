@@ -13,7 +13,7 @@ import java.util.Objects;
  * A BloodTest.
  */
 @Document(collection = "blood_test")
-public class BloodTest implements Serializable {
+public class BloodTest extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

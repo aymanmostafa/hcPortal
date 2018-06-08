@@ -13,7 +13,7 @@ import java.util.Objects;
  * A DentistVisit.
  */
 @Document(collection = "dentist_visit")
-public class DentistVisit implements Serializable {
+public class DentistVisit extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

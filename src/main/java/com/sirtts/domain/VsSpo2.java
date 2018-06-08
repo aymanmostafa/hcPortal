@@ -13,7 +13,7 @@ import java.util.Objects;
  * A VsSpo2.
  */
 @Document(collection = "vs_spo_2")
-public class VsSpo2 implements Serializable {
+public class VsSpo2 extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

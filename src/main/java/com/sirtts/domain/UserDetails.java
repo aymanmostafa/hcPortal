@@ -17,7 +17,7 @@ import com.sirtts.domain.enumeration.Ethnicity;
  * A UserDetails.
  */
 @Document(collection = "user_details")
-public class UserDetails implements Serializable {
+public class UserDetails extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
