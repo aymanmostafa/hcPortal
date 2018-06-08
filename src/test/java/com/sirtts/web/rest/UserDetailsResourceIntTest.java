@@ -175,24 +175,6 @@ public class UserDetailsResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = userDetailsRepository.findAll().size();
-        // set the field null
-        userDetails.setUserid(null);
-
-        // Create the UserDetails, which fails.
-        UserDetailsDTO userDetailsDTO = userDetailsMapper.toDto(userDetails);
-
-        restUserDetailsMockMvc.perform(post("/api/user-details")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(userDetailsDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<UserDetails> userDetailsList = userDetailsRepository.findAll();
-        assertThat(userDetailsList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void getAllUserDetails() throws Exception {
         // Initialize the database
         userDetailsRepository.save(userDetails);

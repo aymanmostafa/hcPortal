@@ -143,24 +143,6 @@ public class MenstrualCycleResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = menstrualCycleRepository.findAll().size();
-        // set the field null
-        menstrualCycle.setUserid(null);
-
-        // Create the MenstrualCycle, which fails.
-        MenstrualCycleDTO menstrualCycleDTO = menstrualCycleMapper.toDto(menstrualCycle);
-
-        restMenstrualCycleMockMvc.perform(post("/api/menstrual-cycles")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(menstrualCycleDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<MenstrualCycle> menstrualCycleList = menstrualCycleRepository.findAll();
-        assertThat(menstrualCycleList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkStartDateIsRequired() throws Exception {
         int databaseSizeBeforeTest = menstrualCycleRepository.findAll().size();
         // set the field null

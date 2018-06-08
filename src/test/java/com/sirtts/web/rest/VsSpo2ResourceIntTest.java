@@ -143,24 +143,6 @@ public class VsSpo2ResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = vsSpo2Repository.findAll().size();
-        // set the field null
-        vsSpo2.setUserid(null);
-
-        // Create the VsSpo2, which fails.
-        VsSpo2DTO vsSpo2DTO = vsSpo2Mapper.toDto(vsSpo2);
-
-        restVsSpo2MockMvc.perform(post("/api/vs-spo-2-s")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(vsSpo2DTO)))
-            .andExpect(status().isBadRequest());
-
-        List<VsSpo2> vsSpo2List = vsSpo2Repository.findAll();
-        assertThat(vsSpo2List).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkPercentIsRequired() throws Exception {
         int databaseSizeBeforeTest = vsSpo2Repository.findAll().size();
         // set the field null

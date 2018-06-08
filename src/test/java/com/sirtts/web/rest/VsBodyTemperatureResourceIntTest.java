@@ -143,24 +143,6 @@ public class VsBodyTemperatureResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = vsBodyTemperatureRepository.findAll().size();
-        // set the field null
-        vsBodyTemperature.setUserid(null);
-
-        // Create the VsBodyTemperature, which fails.
-        VsBodyTemperatureDTO vsBodyTemperatureDTO = vsBodyTemperatureMapper.toDto(vsBodyTemperature);
-
-        restVsBodyTemperatureMockMvc.perform(post("/api/vs-body-temperatures")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(vsBodyTemperatureDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<VsBodyTemperature> vsBodyTemperatureList = vsBodyTemperatureRepository.findAll();
-        assertThat(vsBodyTemperatureList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkCelsiusIsRequired() throws Exception {
         int databaseSizeBeforeTest = vsBodyTemperatureRepository.findAll().size();
         // set the field null

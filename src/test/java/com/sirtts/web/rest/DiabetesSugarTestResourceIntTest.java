@@ -142,23 +142,6 @@ public class DiabetesSugarTestResourceIntTest {
         assertThat(diabetesSugarTestList).hasSize(databaseSizeBeforeCreate);
     }
 
-    @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = diabetesSugarTestRepository.findAll().size();
-        // set the field null
-        diabetesSugarTest.setUserid(null);
-
-        // Create the DiabetesSugarTest, which fails.
-        DiabetesSugarTestDTO diabetesSugarTestDTO = diabetesSugarTestMapper.toDto(diabetesSugarTest);
-
-        restDiabetesSugarTestMockMvc.perform(post("/api/diabetes-sugar-tests")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(diabetesSugarTestDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<DiabetesSugarTest> diabetesSugarTestList = diabetesSugarTestRepository.findAll();
-        assertThat(diabetesSugarTestList).hasSize(databaseSizeBeforeTest);
-    }
 
     @Test
     public void checkResultIsRequired() throws Exception {

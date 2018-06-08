@@ -138,24 +138,6 @@ public class DentistNextVisitResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = dentistNextVisitRepository.findAll().size();
-        // set the field null
-        dentistNextVisit.setUserid(null);
-
-        // Create the DentistNextVisit, which fails.
-        DentistNextVisitDTO dentistNextVisitDTO = dentistNextVisitMapper.toDto(dentistNextVisit);
-
-        restDentistNextVisitMockMvc.perform(post("/api/dentist-next-visits")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(dentistNextVisitDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<DentistNextVisit> dentistNextVisitList = dentistNextVisitRepository.findAll();
-        assertThat(dentistNextVisitList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkMeasurmentdateIsRequired() throws Exception {
         int databaseSizeBeforeTest = dentistNextVisitRepository.findAll().size();
         // set the field null

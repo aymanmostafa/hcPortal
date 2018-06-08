@@ -463,24 +463,6 @@ public class BloodTestResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = bloodTestRepository.findAll().size();
-        // set the field null
-        bloodTest.setUserid(null);
-
-        // Create the BloodTest, which fails.
-        BloodTestDTO bloodTestDTO = bloodTestMapper.toDto(bloodTest);
-
-        restBloodTestMockMvc.perform(post("/api/blood-tests")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(bloodTestDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<BloodTest> bloodTestList = bloodTestRepository.findAll();
-        assertThat(bloodTestList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void getAllBloodTests() throws Exception {
         // Initialize the database
         bloodTestRepository.save(bloodTest);

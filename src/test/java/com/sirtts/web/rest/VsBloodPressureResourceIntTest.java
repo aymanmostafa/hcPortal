@@ -148,24 +148,6 @@ public class VsBloodPressureResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = vsBloodPressureRepository.findAll().size();
-        // set the field null
-        vsBloodPressure.setUserid(null);
-
-        // Create the VsBloodPressure, which fails.
-        VsBloodPressureDTO vsBloodPressureDTO = vsBloodPressureMapper.toDto(vsBloodPressure);
-
-        restVsBloodPressureMockMvc.perform(post("/api/vs-blood-pressures")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(vsBloodPressureDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<VsBloodPressure> vsBloodPressureList = vsBloodPressureRepository.findAll();
-        assertThat(vsBloodPressureList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkSystolicIsRequired() throws Exception {
         int databaseSizeBeforeTest = vsBloodPressureRepository.findAll().size();
         // set the field null

@@ -143,24 +143,6 @@ public class VsHeartRateResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = vsHeartRateRepository.findAll().size();
-        // set the field null
-        vsHeartRate.setUserid(null);
-
-        // Create the VsHeartRate, which fails.
-        VsHeartRateDTO vsHeartRateDTO = vsHeartRateMapper.toDto(vsHeartRate);
-
-        restVsHeartRateMockMvc.perform(post("/api/vs-heart-rates")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(vsHeartRateDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<VsHeartRate> vsHeartRateList = vsHeartRateRepository.findAll();
-        assertThat(vsHeartRateList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkBpmIsRequired() throws Exception {
         int databaseSizeBeforeTest = vsHeartRateRepository.findAll().size();
         // set the field null

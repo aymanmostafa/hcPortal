@@ -143,24 +143,6 @@ public class VsRespiratoryRateResourceIntTest {
     }
 
     @Test
-    public void checkUseridIsRequired() throws Exception {
-        int databaseSizeBeforeTest = vsRespiratoryRateRepository.findAll().size();
-        // set the field null
-        vsRespiratoryRate.setUserid(null);
-
-        // Create the VsRespiratoryRate, which fails.
-        VsRespiratoryRateDTO vsRespiratoryRateDTO = vsRespiratoryRateMapper.toDto(vsRespiratoryRate);
-
-        restVsRespiratoryRateMockMvc.perform(post("/api/vs-respiratory-rates")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(vsRespiratoryRateDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<VsRespiratoryRate> vsRespiratoryRateList = vsRespiratoryRateRepository.findAll();
-        assertThat(vsRespiratoryRateList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void checkBpmIsRequired() throws Exception {
         int databaseSizeBeforeTest = vsRespiratoryRateRepository.findAll().size();
         // set the field null
