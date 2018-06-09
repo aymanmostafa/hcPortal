@@ -98,6 +98,21 @@ public class VsBloodPressureResource {
     }
 
     /**
+     * GET  /vs-blood-pressures/byUserid : get all the vsBloodPressures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of vsBloodPressures in body
+     */
+    @GetMapping("/vs-blood-pressures/byUserid")
+    @Timed
+    public ResponseEntity<List<VsBloodPressureDTO>> getAllVsBloodPressuresByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsBloodPressures by userid");
+        Page<VsBloodPressureDTO> page = vsBloodPressureService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-blood-pressures/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /vs-blood-pressures/:id : get the "id" vsBloodPressure.
      *
      * @param id the id of the vsBloodPressureDTO to retrieve

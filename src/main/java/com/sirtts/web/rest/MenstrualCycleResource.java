@@ -98,6 +98,21 @@ public class MenstrualCycleResource {
     }
 
     /**
+     * GET  /menstrual-cycles/byUserid : get all the menstrualCycles by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of menstrualCycles in body
+     */
+    @GetMapping("/menstrual-cycles/byUserid")
+    @Timed
+    public ResponseEntity<List<MenstrualCycleDTO>> getAllMenstrualCyclesByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsBloodPressures by userid");
+        Page<MenstrualCycleDTO> page = menstrualCycleService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/menstrual-cycles/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /menstrual-cycles/:id : get the "id" menstrualCycle.
      *
      * @param id the id of the menstrualCycleDTO to retrieve

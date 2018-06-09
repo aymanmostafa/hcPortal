@@ -98,6 +98,21 @@ public class VsRespiratoryRateResource {
     }
 
     /**
+     * GET  /vs-respiratory-rates/byUserid : get all the vsRespiratoryRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of vsRespiratoryRates in body
+     */
+    @GetMapping("/vs-respiratory-rates/byUserid")
+    @Timed
+    public ResponseEntity<List<VsRespiratoryRateDTO>> getAllVsRespiratoryRatesByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsRespiratoryRates by userid");
+        Page<VsRespiratoryRateDTO> page = vsRespiratoryRateService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-respiratory-rates/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /vs-respiratory-rates/:id : get the "id" vsRespiratoryRate.
      *
      * @param id the id of the vsRespiratoryRateDTO to retrieve

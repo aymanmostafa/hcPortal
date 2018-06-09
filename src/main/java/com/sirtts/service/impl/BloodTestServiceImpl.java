@@ -61,6 +61,19 @@ public class BloodTestServiceImpl implements BloodTestService {
     }
 
     /**
+     * Get all the bloodTests by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<BloodTestDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all BloodTests");
+        return bloodTestRepository.findAllByUseridIn(userids, pageable)
+            .map(bloodTestMapper::toDto);
+    }
+
+    /**
      * Get one bloodTest by id.
      *
      * @param id the id of the entity

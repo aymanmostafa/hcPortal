@@ -98,6 +98,21 @@ public class VsBodyTemperatureResource {
     }
 
     /**
+     * GET  /vs-body-temperatures/byUserid : get all the vsBodyTemperatures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of vsBodyTemperatures in body
+     */
+    @GetMapping("/vs-body-temperatures/byUserid")
+    @Timed
+    public ResponseEntity<List<VsBodyTemperatureDTO>> getAllVsBodyTemperaturesByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsBodyTemperatures by userid");
+        Page<VsBodyTemperatureDTO> page = vsBodyTemperatureService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-body-temperatures/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /vs-body-temperatures/:id : get the "id" vsBodyTemperature.
      *
      * @param id the id of the vsBodyTemperatureDTO to retrieve

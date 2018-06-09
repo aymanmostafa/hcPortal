@@ -26,6 +26,15 @@ public interface DentistVisitService {
     Page<DentistVisitDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the dentistVisits by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<DentistVisitDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+
+    /**
      * Get the "id" dentistVisit.
      *
      * @param id the id of the entity

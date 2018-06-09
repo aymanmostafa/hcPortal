@@ -26,6 +26,14 @@ public interface VsRespiratoryRateService {
     Page<VsRespiratoryRateDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the vsRespiratoryRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<VsRespiratoryRateDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+    /**
      * Get the "id" vsRespiratoryRate.
      *
      * @param id the id of the entity

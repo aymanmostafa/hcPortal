@@ -26,6 +26,14 @@ public interface MenstrualCycleService {
     Page<MenstrualCycleDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the menstrualCycles by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<MenstrualCycleDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+    /**
      * Get the "id" menstrualCycle.
      *
      * @param id the id of the entity

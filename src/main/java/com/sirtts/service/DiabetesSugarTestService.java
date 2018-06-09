@@ -26,6 +26,14 @@ public interface DiabetesSugarTestService {
     Page<DiabetesSugarTestDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the diabetesSugarTests by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<DiabetesSugarTestDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+    /**
      * Get the "id" diabetesSugarTest.
      *
      * @param id the id of the entity

@@ -26,6 +26,14 @@ public interface VsHeartRateService {
     Page<VsHeartRateDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the vsHeartRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<VsHeartRateDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+    /**
      * Get the "id" vsHeartRate.
      *
      * @param id the id of the entity

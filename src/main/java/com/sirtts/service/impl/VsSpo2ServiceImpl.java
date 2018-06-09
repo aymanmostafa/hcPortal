@@ -12,6 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Service Implementation for managing VsSpo2.
@@ -57,6 +60,19 @@ public class VsSpo2ServiceImpl implements VsSpo2Service {
     public Page<VsSpo2DTO> findAll(Pageable pageable) {
         log.debug("Request to get all VsSpo2S");
         return vsSpo2Repository.findAll(pageable)
+            .map(vsSpo2Mapper::toDto);
+    }
+
+    /**
+     * Get all the vsSpo2S by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<VsSpo2DTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all VsSpo2S");
+        return vsSpo2Repository.findAllByUseridIn(userids, pageable)
             .map(vsSpo2Mapper::toDto);
     }
 

@@ -61,6 +61,20 @@ public class VsHeartRateServiceImpl implements VsHeartRateService {
     }
 
     /**
+     * Get all the vsHeartRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<VsHeartRateDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all VsHeartRates");
+        return vsHeartRateRepository.findAllByUseridIn(userids, pageable)
+            .map(vsHeartRateMapper::toDto);
+    }
+
+
+    /**
      * Get one vsHeartRate by id.
      *
      * @param id the id of the entity

@@ -61,6 +61,19 @@ public class VsRespiratoryRateServiceImpl implements VsRespiratoryRateService {
     }
 
     /**
+     * Get all the vsRespiratoryRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<VsRespiratoryRateDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all VsRespiratoryRates");
+        return vsRespiratoryRateRepository.findAllByUseridIn(userids, pageable)
+            .map(vsRespiratoryRateMapper::toDto);
+    }
+
+    /**
      * Get one vsRespiratoryRate by id.
      *
      * @param id the id of the entity

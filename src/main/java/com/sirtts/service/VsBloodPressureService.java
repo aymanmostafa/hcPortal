@@ -26,6 +26,15 @@ public interface VsBloodPressureService {
     Page<VsBloodPressureDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the vsBloodPressures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<VsBloodPressureDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+
+    /**
      * Get the "id" vsBloodPressure.
      *
      * @param id the id of the entity

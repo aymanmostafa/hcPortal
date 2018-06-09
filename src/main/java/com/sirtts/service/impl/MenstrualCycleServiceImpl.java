@@ -61,6 +61,19 @@ public class MenstrualCycleServiceImpl implements MenstrualCycleService {
     }
 
     /**
+     * Get all the menstrualCycles by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<MenstrualCycleDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all MenstrualCycles");
+        return menstrualCycleRepository.findAllByUseridIn(userids, pageable)
+            .map(menstrualCycleMapper::toDto);
+    }
+
+    /**
      * Get one menstrualCycle by id.
      *
      * @param id the id of the entity

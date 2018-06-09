@@ -61,6 +61,19 @@ public class DentistNextVisitServiceImpl implements DentistNextVisitService {
     }
 
     /**
+     * Get all the dentistNextVisits by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<DentistNextVisitDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all DentistNextVisits");
+        return dentistNextVisitRepository.findAllByUseridIn(userids, pageable)
+            .map(dentistNextVisitMapper::toDto);
+    }
+
+    /**
      * Get one dentistNextVisit by id.
      *
      * @param id the id of the entity

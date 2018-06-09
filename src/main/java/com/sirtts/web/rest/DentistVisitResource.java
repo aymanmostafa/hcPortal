@@ -98,6 +98,21 @@ public class DentistVisitResource {
     }
 
     /**
+     * GET  /dentist-visits/byUserid : get all the dentistVisits by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of dentistVisits in body
+     */
+    @GetMapping("/dentist-visits/byUserid")
+    @Timed
+    public ResponseEntity<List<DentistVisitDTO>> getAllDentistVisitsByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of DentistVisits by userid");
+        Page<DentistVisitDTO> page = dentistVisitService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/dentist-visits/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /dentist-visits/:id : get the "id" dentistVisit.
      *
      * @param id the id of the dentistVisitDTO to retrieve

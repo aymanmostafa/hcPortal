@@ -98,6 +98,21 @@ public class VsSpo2Resource {
     }
 
     /**
+     * GET  /vs-spo-2-sbyUserid/byUserid : get all the vsSpo2S by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of vsSpo2S in body
+     */
+    @GetMapping("/vs-spo-2-s/byUserid")
+    @Timed
+    public ResponseEntity<List<VsSpo2DTO>> getAllVsSpo2SByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsSpo2S by userid");
+        Page<VsSpo2DTO> page = vsSpo2Service.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-spo-2-s/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /vs-spo-2-s/:id : get the "id" vsSpo2.
      *
      * @param id the id of the vsSpo2DTO to retrieve

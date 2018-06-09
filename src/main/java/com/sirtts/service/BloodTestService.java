@@ -26,6 +26,14 @@ public interface BloodTestService {
     Page<BloodTestDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the bloodTests by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<BloodTestDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+    /**
      * Get the "id" bloodTest.
      *
      * @param id the id of the entity

@@ -26,6 +26,15 @@ public interface VsBodyTemperatureService {
     Page<VsBodyTemperatureDTO> findAll(Pageable pageable);
 
     /**
+     * Get all the vsBodyTemperatures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<VsBodyTemperatureDTO> findAllByUserid(String[] userids, Pageable pageable);
+
+
+    /**
      * Get the "id" vsBodyTemperature.
      *
      * @param id the id of the entity

@@ -61,6 +61,19 @@ public class VsBodyTemperatureServiceImpl implements VsBodyTemperatureService {
     }
 
     /**
+     * Get all the vsBodyTemperatures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<VsBodyTemperatureDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all VsBodyTemperatures");
+        return vsBodyTemperatureRepository.findAllByUseridIn(userids, pageable)
+            .map(vsBodyTemperatureMapper::toDto);
+    }
+
+    /**
      * Get one vsBodyTemperature by id.
      *
      * @param id the id of the entity

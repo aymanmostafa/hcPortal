@@ -1,6 +1,8 @@
 package com.sirtts.repository;
 
 import com.sirtts.domain.DentistVisit;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,5 +13,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 @SuppressWarnings("unused")
 @Repository
 public interface DentistVisitRepository extends MongoRepository<DentistVisit, String> {
+
+    Page<DentistVisit> findAllByUseridIn(String[] userids, Pageable pageable);
 
 }

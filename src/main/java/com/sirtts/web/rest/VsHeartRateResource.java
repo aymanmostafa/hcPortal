@@ -98,6 +98,21 @@ public class VsHeartRateResource {
     }
 
     /**
+     * GET  /vs-heart-rates/byUserid : get all the vsHeartRates by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of vsHeartRates in body
+     */
+    @GetMapping("/vs-heart-rates/byUserid")
+    @Timed
+    public ResponseEntity<List<VsHeartRateDTO>> getAllVsHeartRatesByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of VsHeartRates by userid");
+        Page<VsHeartRateDTO> page = vsHeartRateService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-heart-rates/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /vs-heart-rates/:id : get the "id" vsHeartRate.
      *
      * @param id the id of the vsHeartRateDTO to retrieve

@@ -63,6 +63,19 @@ public class DiabetesSugarTestServiceImpl implements DiabetesSugarTestService {
     }
 
     /**
+     * Get all the diabetesSugarTests by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<DiabetesSugarTestDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all DiabetesSugarTests");
+        return diabetesSugarTestRepository.findAllByUseridIn(userids, pageable)
+            .map(diabetesSugarTestMapper::toDto);
+    }
+
+    /**
      * Get one diabetesSugarTest by id.
      *
      * @param id the id of the entity

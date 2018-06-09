@@ -61,6 +61,19 @@ public class VsBloodPressureServiceImpl implements VsBloodPressureService {
     }
 
     /**
+     * Get all the vsBloodPressures by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    @Override
+    public Page<VsBloodPressureDTO> findAllByUserid(String[] userids, Pageable pageable) {
+        log.debug("Request to get all VsBloodPressures");
+        return vsBloodPressureRepository.findAllByUseridIn(userids, pageable)
+            .map(vsBloodPressureMapper::toDto);
+    }
+
+    /**
      * Get one vsBloodPressure by id.
      *
      * @param id the id of the entity

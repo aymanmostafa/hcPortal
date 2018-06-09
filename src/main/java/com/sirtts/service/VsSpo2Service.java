@@ -4,6 +4,8 @@ import com.sirtts.service.dto.VsSpo2DTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing VsSpo2.
  */
@@ -24,6 +26,14 @@ public interface VsSpo2Service {
      * @return the list of entities
      */
     Page<VsSpo2DTO> findAll(Pageable pageable);
+
+    /**
+     * Get all the vsSpo2S by userid.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<VsSpo2DTO> findAllByUserid(String[] userids, Pageable pageable);
 
     /**
      * Get the "id" vsSpo2.

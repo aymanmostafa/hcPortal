@@ -98,6 +98,21 @@ public class DiabetesSugarTestResource {
     }
 
     /**
+     * GET  /diabetes-sugar-tests/byUserid : get all the diabetesSugarTests by userid.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of diabetesSugarTests in body
+     */
+    @GetMapping("/diabetes-sugar-tests/byUserid")
+    @Timed
+    public ResponseEntity<List<DiabetesSugarTestDTO>> getAllDiabetesSugarTestsByUserid(String[] userids, Pageable pageable) {
+        log.debug("REST request to get a page of DiabetesSugarTests by userid");
+        Page<DiabetesSugarTestDTO> page = diabetesSugarTestService.findAllByUserid(userids, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/diabetes-sugar-tests/byUserid");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * GET  /diabetes-sugar-tests/:id : get the "id" diabetesSugarTest.
      *
      * @param id the id of the diabetesSugarTestDTO to retrieve
