@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    gender: string;
 
     constructor(
         private loginService: LoginService,
@@ -59,6 +60,8 @@ export class NavbarComponent implements OnInit {
         return this.principal.isAuthenticated();
     }
 
+
+
     login() {
         this.modalRef = this.loginModalService.open();
     }
@@ -75,5 +78,12 @@ export class NavbarComponent implements OnInit {
 
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    }
+
+    isFemale() {
+        this.gender = this.principal.getGender();
+        debugger;
+        if(this.gender == 'FEMALE') return true;
+        else return false;
     }
 }

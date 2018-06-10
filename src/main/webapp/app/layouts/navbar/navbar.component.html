@@ -58,8 +58,9 @@
                             <span jhiTranslate="global.menu.entities.vsBloodPressure">Vs Blood Pressure</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="menstrual-cycle" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <li *ngIf="isFemale()">
+                        <a class="dropdown-item" routerLink="menstrual-cycle" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.menstrualCycle">Menstrual Cycle</span>
                         </a>

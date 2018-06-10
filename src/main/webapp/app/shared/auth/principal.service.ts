@@ -99,4 +99,8 @@ export class Principal {
     getLogin(): String {
         return this.userIdentity.login;
     }
+
+    getGender(): string {
+        return this.isIdentityResolved() ? this.userIdentity.gender : null;
+    }
 }
