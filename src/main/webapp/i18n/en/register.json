@@ -11,9 +11,17 @@
                     "minlength": "Your username is required to be at least 1 character.",
                     "maxlength": "Your username cannot be longer than 50 characters.",
                     "pattern": "Your username can only contain letters and digits."
+                },
+                "marital_status": {
+                    "required": "Your marital status is required.",
+                    "minlength": "Your marital status is required to be at least 1 character.",
+                    "pattern": "Your marital status can only contain letters and digits."
+                },
+                "birthdate": {
+                    "required": "Your birthdate is required."
                 }
             },
-            "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+            "success": "<strong>Registration saved!</strong> Please check your email for confirmation.<strong> Email service doesn't work now, you can log in without confirmation</strong>",
             "error": {
                 "fail": "<strong>Registration failed!</strong> Please try again later.",
                 "userexists": "<strong>Login name already registered!</strong> Please choose another one.",

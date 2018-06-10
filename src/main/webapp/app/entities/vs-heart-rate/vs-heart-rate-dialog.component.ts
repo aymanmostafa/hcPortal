@@ -38,9 +38,11 @@ export class VsHeartRateDialogComponent implements OnInit {
     save() {
         this.isSaving = true;
         if (this.vsHeartRate.id !== undefined) {
+
             this.subscribeToSaveResponse(
                 this.vsHeartRateService.update(this.vsHeartRate));
         } else {
+            debugger;
             this.subscribeToSaveResponse(
                 this.vsHeartRateService.create(this.vsHeartRate));
         }

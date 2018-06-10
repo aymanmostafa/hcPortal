@@ -7,6 +7,7 @@ import com.sirtts.domain.MyDoctor;
 import com.sirtts.domain.User;
 
 import com.sirtts.domain.enumeration.Ethnicity;
+import com.sirtts.domain.enumeration.Gender;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -61,6 +62,8 @@ public class UserDTO {
 
     private Ethnicity ethnicity;
 
+    private Gender gender;
+
     private String maritalStatus;
 
     private Boolean isDoctor;
@@ -91,6 +94,7 @@ public class UserDTO {
             .collect(Collectors.toSet());
         this.birthdate = user.getBirthdate();
         this.ethnicity = user.getEthnicity();
+        this.gender = user.getGender();
         this.maritalStatus = user.getMaritalStatus();
         this.isDoctor = user.isIsDoctor();
         this.patients = user.getPatients().stream()
@@ -251,6 +255,14 @@ public class UserDTO {
 
     public void setDoctors(Set<String> doctors) {
         this.doctors = doctors;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     @Override

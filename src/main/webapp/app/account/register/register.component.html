@@ -5,6 +5,7 @@
 
             <div class="alert alert-success" *ngIf="success" jhiTranslate="register.messages.success">
                 <strong>Registration saved!</strong> Please check your email for confirmation.
+                <strong>Email service doesn't work now, you can log in without confirmation</strong>
             </div>
 
             <div class="alert alert-danger" *ngIf="error" jhiTranslate="register.messages.error.fail">
@@ -114,7 +115,70 @@
                         </small>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="global.form.birthdate" for="birthdate">birthdate</label>
+                    <div class="input-group">
+                        <input id="birthdate" type="text" class="form-control" name="birthdate" ngbDatepicker
+                               #birthdateDp="ngbDatepicker" [(ngModel)]="birthdate" #birthdateInput="ngModel"
+                               required placeholder="{{'global.form.birthdate.placeholder' | translate}}"/>
+                        <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="birthdateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+                    </div>
+                    <div *ngIf="birthdateInput.dirty && birthdateInput.invalid">
+                        <small class="form-text text-danger" *ngIf="birthdateInput.errors.required"
+                               jhiTranslate="register.messages.validate.birthdate.required">
+                            Your birthdate is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="marital_status" jhiTranslate="global.form.marital_status">marital_status</label>
+                    <input type="text" class="form-control" [(ngModel)]="registerAccount.marital_status"
+                           id="marital_status" name="marital_status" #marital_status="ngModel" placeholder="{{'global.form.marital_status.placeholder' | translate}}"
+                           required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+                    <div *ngIf="marital_status.dirty && marital_status.invalid">
+                        <small class="form-text text-danger" *ngIf="marital_status.errors.required"
+                               jhiTranslate="register.messages.validate.marital_status.required">
+                            Your marital_status is required.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="marital_status.errors.minlength"
+                               jhiTranslate="register.messages.validate.marital_status.minlength">
+                            Your marital_status is required to be at least 1 character.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="marital_status.errors.pattern"
+                               jhiTranslate="register.messages.validate.marital_status.pattern">
+                            Your marital_status can only contain letters and digits.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="global.form.gender" for="gender">Gender</label>
+                    <select class="form-control" name="gender" [(ngModel)]="registerAccount.gender" id="gender" required>
+                        <option value="MALE">{{'hcPortalApp.Gender.MALE' | translate}}</option>
+                        <option value="FEMALE">{{'hcPortalApp.Gender.FEMALE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="global.form.ethnicity" for="ethnicity">Ethnicity</label>
+                    <select class="form-control" name="ethnicity" [(ngModel)]="registerAccount.ethnicity" id="ethnicity" required>
+                        <option value="EUROPEAN">{{'hcPortalApp.Ethnicity.EUROPEAN' | translate}}</option>
+                        <option value="MAORI">{{'hcPortalApp.Ethnicity.MAORI' | translate}}</option>
+                        <option value="PACIFIC_PEOPLES">{{'hcPortalApp.Ethnicity.PACIFIC_PEOPLES' | translate}}</option>
+                        <option value="ASIAN">{{'hcPortalApp.Ethnicity.ASIAN' | translate}}</option>
+                        <option value="MIDDLE_EASTERN">{{'hcPortalApp.Ethnicity.MIDDLE_EASTERN' | translate}}</option>
+                        <option value="LATIN_AMERICAN">{{'hcPortalApp.Ethnicity.LATIN_AMERICAN' | translate}}</option>
+                        <option value="AFRICAN">{{'hcPortalApp.Ethnicity.AFRICAN' | translate}}</option>
+                        <option value="OTHER_ETHNICITY">{{'hcPortalApp.Ethnicity.OTHER_ETHNICITY' | translate}}</option>
+                        <option value="RESIDUAL_CATEGORIES">{{'hcPortalApp.Ethnicity.RESIDUAL_CATEGORIES' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="isDoctor">
+                        <input class="form-check-input" type="checkbox" id="isDoctor" name="isDoctor" [(ngModel)]="registerAccount.isDoctor">
+                        <span jhiTranslate="global.form.isDoctor">I'm a doctor</span>
+                    </label>
+                </div>
                 <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary" jhiTranslate="register.form.button">Register</button>
             </form>
             <p></p>

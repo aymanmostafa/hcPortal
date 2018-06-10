@@ -106,8 +106,13 @@ public class UserService {
         newUser.setEmail(userDTO.getEmail());
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
-        // new user is not active
-        newUser.setActivated(false);
+        newUser.setIsDoctor(userDTO.getDoctor());
+        newUser.setBirthdate(userDTO.getBirthdate());
+        newUser.setMaritalStatus(userDTO.getMaritalStatus());
+        newUser.setEthnicity(userDTO.getEthnicity());
+        newUser.setGender(userDTO.getGender());
+        // new user is not active,but for now he will be activated till configure email server
+        newUser.setActivated(true);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);

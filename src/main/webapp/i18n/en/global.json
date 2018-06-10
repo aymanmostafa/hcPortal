@@ -51,7 +51,14 @@
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "Email",
-            "email.placeholder": "Your email"
+            "email.placeholder": "Your email",
+            "birthdate": "Date of Birth",
+            "birthdate.placeholder": "Your Birthdate",
+            "marital_status": "Marital status",
+            "marital_status.placeholder": "Your Marital status",
+            "isDoctor": "I'm a doctor",
+            "gender": "Gender",
+            "ethnicity": "Ethnicity"
         },
         "messages": {
             "info": {
