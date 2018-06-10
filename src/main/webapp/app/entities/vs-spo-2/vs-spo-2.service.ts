@@ -36,7 +36,7 @@ export class VsSpo2Service {
 
     query(req?: any): Observable<HttpResponse<VsSpo2[]>> {
         const options = createRequestOption(req);
-        return this.http.get<VsSpo2[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<VsSpo2[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<VsSpo2[]>) => this.convertArrayResponse(res));
     }
 

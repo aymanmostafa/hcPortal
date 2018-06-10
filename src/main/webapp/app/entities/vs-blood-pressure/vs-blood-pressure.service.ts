@@ -36,7 +36,7 @@ export class VsBloodPressureService {
 
     query(req?: any): Observable<HttpResponse<VsBloodPressure[]>> {
         const options = createRequestOption(req);
-        return this.http.get<VsBloodPressure[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<VsBloodPressure[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<VsBloodPressure[]>) => this.convertArrayResponse(res));
     }
 

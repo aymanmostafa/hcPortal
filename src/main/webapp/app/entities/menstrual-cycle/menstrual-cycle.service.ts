@@ -36,7 +36,7 @@ export class MenstrualCycleService {
 
     query(req?: any): Observable<HttpResponse<MenstrualCycle[]>> {
         const options = createRequestOption(req);
-        return this.http.get<MenstrualCycle[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<MenstrualCycle[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<MenstrualCycle[]>) => this.convertArrayResponse(res));
     }
 

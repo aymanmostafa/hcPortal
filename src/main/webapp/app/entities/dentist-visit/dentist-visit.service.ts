@@ -36,7 +36,7 @@ export class DentistVisitService {
 
     query(req?: any): Observable<HttpResponse<DentistVisit[]>> {
         const options = createRequestOption(req);
-        return this.http.get<DentistVisit[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<DentistVisit[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<DentistVisit[]>) => this.convertArrayResponse(res));
     }
 

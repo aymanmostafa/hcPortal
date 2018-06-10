@@ -36,7 +36,7 @@ export class VsBodyTemperatureService {
 
     query(req?: any): Observable<HttpResponse<VsBodyTemperature[]>> {
         const options = createRequestOption(req);
-        return this.http.get<VsBodyTemperature[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<VsBodyTemperature[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<VsBodyTemperature[]>) => this.convertArrayResponse(res));
     }
 

@@ -36,7 +36,7 @@ export class DiabetesSugarTestService {
 
     query(req?: any): Observable<HttpResponse<DiabetesSugarTest[]>> {
         const options = createRequestOption(req);
-        return this.http.get<DiabetesSugarTest[]>(this.resourceUrl, { params: options, observe: 'response' })
+        return this.http.get<DiabetesSugarTest[]>(`${this.resourceUrl}/byUserid/`, { params: options, observe: 'response' })
             .map((res: HttpResponse<DiabetesSugarTest[]>) => this.convertArrayResponse(res));
     }
 
