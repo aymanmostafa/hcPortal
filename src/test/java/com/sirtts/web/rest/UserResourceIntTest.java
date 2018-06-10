@@ -523,6 +523,8 @@ public class UserResourceIntTest {
         userDTO.setCreatedBy(DEFAULT_LOGIN);
         userDTO.setLastModifiedBy(DEFAULT_LOGIN);
         userDTO.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
+        userDTO.setPatients(Collections.singleton(DEFAULT_LOGIN));
+        userDTO.setDoctors(Collections.singleton(DEFAULT_LOGIN));
 
         User user = userMapper.userDTOToUser(userDTO);
         assertThat(user.getId()).isEqualTo(DEFAULT_ID);
@@ -538,6 +540,9 @@ public class UserResourceIntTest {
         assertThat(user.getLastModifiedBy()).isNull();
         assertThat(user.getLastModifiedDate()).isNotNull();
         assertThat(user.getAuthorities()).extracting("name").containsExactly(AuthoritiesConstants.USER);
+        assertThat(user.getPatients()).extracting("login").containsExactly(DEFAULT_LOGIN);
+        assertThat(user.getPatients()).extracting("login").containsExactly(DEFAULT_LOGIN);
+
     }
 
     @Test
