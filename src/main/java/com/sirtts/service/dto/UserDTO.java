@@ -3,15 +3,19 @@ package com.sirtts.service.dto;
 import com.sirtts.config.Constants;
 
 import com.sirtts.domain.Authority;
+import com.sirtts.domain.MyDoctor;
 import com.sirtts.domain.User;
 
+import com.sirtts.domain.enumeration.Ethnicity;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.*;
 import java.time.Instant;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.time.LocalDate;
 
 /**
  * A DTO representing a user, with his authorities.
@@ -53,6 +57,18 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    private LocalDate birthdate;
+
+    private Ethnicity ethnicity;
+
+    private String maritalStatus;
+
+    private Boolean isDoctor;
+
+    private Set<String> patients;
+
+    private Set<String> doctors;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -72,6 +88,16 @@ public class UserDTO {
         this.lastModifiedDate = user.getLastModifiedDate();
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
+            .collect(Collectors.toSet());
+        this.birthdate = user.getBirthdate();
+        this.ethnicity = user.getEthnicity();
+        this.maritalStatus = user.getMaritalStatus();
+        this.isDoctor = user.isIsDoctor();
+        this.patients = user.getPatients().stream()
+            .map(User::getLogin)
+            .collect(Collectors.toSet());
+        this.doctors = user.getDoctors().stream()
+            .map(MyDoctor::getDoctorName)
             .collect(Collectors.toSet());
     }
 
@@ -177,6 +203,54 @@ public class UserDTO {
 
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public Ethnicity getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(Ethnicity ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public Boolean getDoctor() {
+        return isDoctor;
+    }
+
+    public void setDoctor(Boolean doctor) {
+        isDoctor = doctor;
+    }
+
+    public Set<String> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(Set<String> patients) {
+        this.patients = patients;
+    }
+
+    public Set<String> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Set<String> doctors) {
+        this.doctors = doctors;
     }
 
     @Override

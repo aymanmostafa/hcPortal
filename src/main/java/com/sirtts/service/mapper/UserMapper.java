@@ -1,6 +1,7 @@
 package com.sirtts.service.mapper;
 
 import com.sirtts.domain.Authority;
+import com.sirtts.domain.MyDoctor;
 import com.sirtts.domain.User;
 import com.sirtts.service.dto.UserDTO;
 
@@ -42,9 +43,23 @@ public class UserMapper {
             user.setImageUrl(userDTO.getImageUrl());
             user.setActivated(userDTO.isActivated());
             user.setLangKey(userDTO.getLangKey());
+            user.setBirthdate(userDTO.getBirthdate());
+            user.setEthnicity(userDTO.getEthnicity());
+            user.setMaritalStatus(userDTO.getMaritalStatus());
+            user.setIsDoctor(userDTO.getDoctor());
             Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
             if (authorities != null) {
                 user.setAuthorities(authorities);
+            }
+
+            Set<User> patients = this.patientsFromStrings(userDTO.getPatients());
+            if (patients != null) {
+                user.setPatients(patients);
+            }
+
+            Set<MyDoctor> doctors = this.doctorsFromStrings(userDTO.getDoctors());
+            if (doctors != null) {
+                user.setDoctors(doctors);
             }
             return user;
         }
@@ -71,6 +86,24 @@ public class UserMapper {
             Authority auth = new Authority();
             auth.setName(string);
             return auth;
+        }).collect(Collectors.toSet());
+    }
+
+    public Set<User> patientsFromStrings(Set<String> strings) {
+        return strings.stream().map(string -> {
+            User user = new User();
+            user.setLogin(string);
+            return user;
+        }).collect(Collectors.toSet());
+    }
+
+    public Set<MyDoctor> doctorsFromStrings(Set<String> strings) {
+        return strings.stream().map(string -> {
+            MyDoctor doctor = new MyDoctor();
+            User user = new User();
+            user.setLogin(string);
+            doctor.setDoctor(user);
+            return doctor;
         }).collect(Collectors.toSet());
     }
 }

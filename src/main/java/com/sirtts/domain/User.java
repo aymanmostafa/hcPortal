@@ -3,6 +3,8 @@ package com.sirtts.domain;
 import com.sirtts.config.Constants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sirtts.domain.enumeration.Ethnicity;
+import com.sirtts.domain.enumeration.Gender;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
@@ -13,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Objects;
@@ -79,8 +82,29 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Field("reset_date")
     private Instant resetDate = null;
 
+    @Field("gender")
+    private Gender gender;
+
+    @Field("birthdate")
+    private LocalDate birthdate;
+
+    @Field("ethnicity")
+    private Ethnicity ethnicity;
+
+    @Size(max = 50)
+    @Field("marital_status")
+    private String maritalStatus;
+
+    @Field("is_doctor")
+    private Boolean isDoctor;
+
     @JsonIgnore
     private Set<Authority> authorities = new HashSet<>();
+
+
+    private Set<User> patients = new HashSet<>();
+
+    private Set<MyDoctor> doctors = new HashSet<>();
 
     public String getId() {
         return id;
@@ -179,6 +203,71 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.langKey = langKey;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public User gender(Gender gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public User birthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+        return this;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public Ethnicity getEthnicity() {
+        return ethnicity;
+    }
+
+    public User ethnicity(Ethnicity ethnicity) {
+        this.ethnicity = ethnicity;
+        return this;
+    }
+
+    public void setEthnicity(Ethnicity ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public User maritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+        return this;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public Boolean isIsDoctor() {
+        return isDoctor;
+    }
+
+    public User isDoctor(Boolean isDoctor) {
+        this.isDoctor = isDoctor;
+        return this;
+    }
+
+    public void setIsDoctor(Boolean isDoctor) {
+        this.isDoctor = isDoctor;
+    }
+
     public Set<Authority> getAuthorities() {
         return authorities;
     }
@@ -186,6 +275,24 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
+
+    public Set<User> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(Set<User> patients) {
+        this.patients = patients;
+    }
+
+    public Set<MyDoctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Set<MyDoctor> doctors) {
+        this.doctors = doctors;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

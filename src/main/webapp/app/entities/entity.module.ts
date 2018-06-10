@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { HcPortalUserDetailsModule } from './user-details/user-details.module';
 import { HcPortalVsSpo2Module } from './vs-spo-2/vs-spo-2.module';
 import { HcPortalVsRespiratoryRateModule } from './vs-respiratory-rate/vs-respiratory-rate.module';
 import { HcPortalVsHeartRateModule } from './vs-heart-rate/vs-heart-rate.module';
@@ -15,7 +14,6 @@ import { HcPortalDentistNextVisitModule } from './dentist-next-visit/dentist-nex
 
 @NgModule({
     imports: [
-        HcPortalUserDetailsModule,
         HcPortalVsSpo2Module,
         HcPortalVsRespiratoryRateModule,
         HcPortalVsHeartRateModule,
