@@ -4,6 +4,7 @@ import com.sirtts.HcPortalApp;
 import com.sirtts.domain.User;
 import com.sirtts.repository.UserRepository;
 import com.sirtts.security.jwt.TokenProvider;
+import com.sirtts.service.UserService;
 import com.sirtts.web.rest.vm.LoginVM;
 import com.sirtts.web.rest.errors.ExceptionTranslator;
 import org.junit.Before;
@@ -44,6 +45,9 @@ public class UserJWTControllerIntTest {
     private UserRepository userRepository;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -53,7 +57,7 @@ public class UserJWTControllerIntTest {
 
     @Before
     public void setup() {
-        UserJWTController userJWTController = new UserJWTController(tokenProvider, authenticationManager);
+        UserJWTController userJWTController = new UserJWTController(tokenProvider, authenticationManager, userService);
         this.mockMvc = MockMvcBuilders.standaloneSetup(userJWTController)
             .setControllerAdvice(exceptionTranslator)
             .build();

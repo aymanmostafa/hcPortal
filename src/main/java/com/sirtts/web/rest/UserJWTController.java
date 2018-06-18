@@ -1,7 +1,9 @@
 package com.sirtts.web.rest;
 
+import com.sirtts.domain.User;
 import com.sirtts.security.jwt.JWTConfigurer;
 import com.sirtts.security.jwt.TokenProvider;
+import com.sirtts.service.UserService;
 import com.sirtts.web.rest.vm.LoginVM;
 
 import com.codahale.metrics.annotation.Timed;
@@ -29,9 +31,12 @@ public class UserJWTController {
 
     private final AuthenticationManager authenticationManager;
 
-    public UserJWTController(TokenProvider tokenProvider, AuthenticationManager authenticationManager) {
+    private final UserService userService;
+
+    public UserJWTController(TokenProvider tokenProvider, AuthenticationManager authenticationManager, UserService userService) {
         this.tokenProvider = tokenProvider;
         this.authenticationManager = authenticationManager;
+        this.userService = userService;
     }
 
     @PostMapping("/authenticate")
@@ -45,9 +50,10 @@ public class UserJWTController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         boolean rememberMe = (loginVM.isRememberMe() == null) ? false : loginVM.isRememberMe();
         String jwt = tokenProvider.createToken(authentication, rememberMe);
+        User user = userService.getUserWithAuthoritiesByLogin(loginVM.getUsername()).get();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(new JWTToken(jwt, user.getGender().toString()), httpHeaders, HttpStatus.OK);
     }
 
     /**
@@ -57,8 +63,11 @@ public class UserJWTController {
 
         private String idToken;
 
-        JWTToken(String idToken) {
+        private String gender;
+
+        JWTToken(String idToken, String gender) {
             this.idToken = idToken;
+            this.gender = gender;
         }
 
         @JsonProperty("id_token")
@@ -68,6 +77,15 @@ public class UserJWTController {
 
         void setIdToken(String idToken) {
             this.idToken = idToken;
+        }
+
+        @JsonProperty("gender")
+        String getGender() {
+            return gender;
+        }
+
+        void setGender(String gender) {
+            this.gender = gender;
         }
     }
 }
