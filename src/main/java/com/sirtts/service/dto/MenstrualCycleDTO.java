@@ -1,7 +1,7 @@
 package com.sirtts.service.dto;
 
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,10 +16,10 @@ public class MenstrualCycleDTO implements Serializable {
     private String userid;
 
     @NotNull
-    private ZonedDateTime startDate;
+    private LocalDateTime startDate;
 
     @NotNull
-    private ZonedDateTime endDate;
+    private LocalDateTime endDate;
 
     public String getId() {
         return id;
@@ -37,19 +37,19 @@ public class MenstrualCycleDTO implements Serializable {
         this.userid = userid;
     }
 
-    public ZonedDateTime getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(ZonedDateTime startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public ZonedDateTime getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(ZonedDateTime endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

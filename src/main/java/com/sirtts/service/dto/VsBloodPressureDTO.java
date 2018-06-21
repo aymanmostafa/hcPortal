@@ -1,7 +1,7 @@
 package com.sirtts.service.dto;
 
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -22,7 +22,7 @@ public class VsBloodPressureDTO implements Serializable {
     private Double diastolic;
 
     @NotNull
-    private ZonedDateTime measurmentdate;
+    private LocalDateTime measurmentdate;
 
     public String getId() {
         return id;
@@ -56,11 +56,11 @@ public class VsBloodPressureDTO implements Serializable {
         this.diastolic = diastolic;
     }
 
-    public ZonedDateTime getMeasurmentdate() {
+    public LocalDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public void setMeasurmentdate(ZonedDateTime measurmentdate) {
+    public void setMeasurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
 

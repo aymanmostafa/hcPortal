@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -33,7 +33,7 @@ public class VsBloodPressure extends AbstractAuditingEntity implements Serializa
 
     @NotNull
     @Field("measurmentdate")
-    private ZonedDateTime measurmentdate;
+    private LocalDateTime measurmentdate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -83,16 +83,16 @@ public class VsBloodPressure extends AbstractAuditingEntity implements Serializa
         this.diastolic = diastolic;
     }
 
-    public ZonedDateTime getMeasurmentdate() {
+    public LocalDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public VsBloodPressure measurmentdate(ZonedDateTime measurmentdate) {
+    public VsBloodPressure measurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
         return this;
     }
 
-    public void setMeasurmentdate(ZonedDateTime measurmentdate) {
+    public void setMeasurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

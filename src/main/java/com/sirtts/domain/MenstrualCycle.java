@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -25,11 +25,11 @@ public class MenstrualCycle extends AbstractAuditingEntity implements Serializab
 
     @NotNull
     @Field("start_date")
-    private ZonedDateTime startDate;
+    private LocalDateTime startDate;
 
     @NotNull
     @Field("end_date")
-    private ZonedDateTime endDate;
+    private LocalDateTime endDate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -53,29 +53,29 @@ public class MenstrualCycle extends AbstractAuditingEntity implements Serializab
         this.userid = userid;
     }
 
-    public ZonedDateTime getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public MenstrualCycle startDate(ZonedDateTime startDate) {
+    public MenstrualCycle startDate(LocalDateTime startDate) {
         this.startDate = startDate;
         return this;
     }
 
-    public void setStartDate(ZonedDateTime startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public ZonedDateTime getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public MenstrualCycle endDate(ZonedDateTime endDate) {
+    public MenstrualCycle endDate(LocalDateTime endDate) {
         this.endDate = endDate;
         return this;
     }
 
-    public void setEndDate(ZonedDateTime endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

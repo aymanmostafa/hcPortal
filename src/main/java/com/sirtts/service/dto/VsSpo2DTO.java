@@ -1,7 +1,7 @@
 package com.sirtts.service.dto;
 
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,7 +19,7 @@ public class VsSpo2DTO implements Serializable {
     private Double percent;
 
     @NotNull
-    private ZonedDateTime measurmentdate;
+    private LocalDateTime measurmentdate;
 
     public String getId() {
         return id;
@@ -45,11 +45,11 @@ public class VsSpo2DTO implements Serializable {
         this.percent = percent;
     }
 
-    public ZonedDateTime getMeasurmentdate() {
+    public LocalDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public void setMeasurmentdate(ZonedDateTime measurmentdate) {
+    public void setMeasurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
 

@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
@@ -47,8 +47,8 @@ public class DentistNextVisitResourceIntTest {
     private static final String DEFAULT_USERID = "AAAAAAAAAA";
     private static final String UPDATED_USERID = "BBBBBBBBBB";
 
-    private static final ZonedDateTime DEFAULT_MEASURMENTDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_MEASURMENTDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final LocalDateTime DEFAULT_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
+    private static final LocalDateTime UPDATED_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
 
     @Autowired
     private DentistNextVisitRepository dentistNextVisitRepository;
@@ -169,7 +169,7 @@ public class DentistNextVisitResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(dentistNextVisit.getId())))
             .andExpect(jsonPath("$.[*].userid").value(hasItem(DEFAULT_USERID.toString())))
-            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(sameInstant(DEFAULT_MEASURMENTDATE))));
+            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(DEFAULT_MEASURMENTDATE.toString())));
     }
 
     @Test
@@ -183,7 +183,7 @@ public class DentistNextVisitResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(dentistNextVisit.getId()))
             .andExpect(jsonPath("$.userid").value(DEFAULT_USERID.toString()))
-            .andExpect(jsonPath("$.measurmentdate").value(sameInstant(DEFAULT_MEASURMENTDATE)));
+            .andExpect(jsonPath("$.measurmentdate").value(DEFAULT_MEASURMENTDATE.toString()));
     }
 
     @Test

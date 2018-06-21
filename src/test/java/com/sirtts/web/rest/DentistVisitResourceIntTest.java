@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
@@ -80,8 +80,8 @@ public class DentistVisitResourceIntTest {
     private static final String DEFAULT_NOTES = "AAAAAAAAAA";
     private static final String UPDATED_NOTES = "BBBBBBBBBB";
 
-    private static final ZonedDateTime DEFAULT_MEASURMENTDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_MEASURMENTDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final LocalDateTime DEFAULT_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
+    private static final LocalDateTime UPDATED_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
 
     @Autowired
     private DentistVisitRepository dentistVisitRepository;
@@ -217,7 +217,7 @@ public class DentistVisitResourceIntTest {
             .andExpect(jsonPath("$.[*].extraction").value(hasItem(DEFAULT_EXTRACTION.booleanValue())))
             .andExpect(jsonPath("$.[*].oralsurgery").value(hasItem(DEFAULT_ORALSURGERY.booleanValue())))
             .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())))
-            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(sameInstant(DEFAULT_MEASURMENTDATE))));
+            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(DEFAULT_MEASURMENTDATE.toString())));
     }
 
     @Test
@@ -242,7 +242,7 @@ public class DentistVisitResourceIntTest {
             .andExpect(jsonPath("$.extraction").value(DEFAULT_EXTRACTION.booleanValue()))
             .andExpect(jsonPath("$.oralsurgery").value(DEFAULT_ORALSURGERY.booleanValue()))
             .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()))
-            .andExpect(jsonPath("$.measurmentdate").value(sameInstant(DEFAULT_MEASURMENTDATE)));
+            .andExpect(jsonPath("$.measurmentdate").value(DEFAULT_MEASURMENTDATE.toString()));
     }
 
     @Test

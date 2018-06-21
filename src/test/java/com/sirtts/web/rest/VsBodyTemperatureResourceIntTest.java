@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
@@ -50,8 +50,8 @@ public class VsBodyTemperatureResourceIntTest {
     private static final Double DEFAULT_CELSIUS = 1D;
     private static final Double UPDATED_CELSIUS = 2D;
 
-    private static final ZonedDateTime DEFAULT_MEASURMENTDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_MEASURMENTDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final LocalDateTime DEFAULT_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
+    private static final LocalDateTime UPDATED_MEASURMENTDATE = LocalDateTime.now(ZoneOffset.UTC);
 
     @Autowired
     private VsBodyTemperatureRepository vsBodyTemperatureRepository;
@@ -193,7 +193,7 @@ public class VsBodyTemperatureResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(vsBodyTemperature.getId())))
             .andExpect(jsonPath("$.[*].userid").value(hasItem(DEFAULT_USERID.toString())))
             .andExpect(jsonPath("$.[*].celsius").value(hasItem(DEFAULT_CELSIUS.doubleValue())))
-            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(sameInstant(DEFAULT_MEASURMENTDATE))));
+            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(DEFAULT_MEASURMENTDATE.toString())));
     }
 
     @Test
@@ -208,7 +208,7 @@ public class VsBodyTemperatureResourceIntTest {
             .andExpect(jsonPath("$.id").value(vsBodyTemperature.getId()))
             .andExpect(jsonPath("$.userid").value(DEFAULT_USERID.toString()))
             .andExpect(jsonPath("$.celsius").value(DEFAULT_CELSIUS.doubleValue()))
-            .andExpect(jsonPath("$.measurmentdate").value(sameInstant(DEFAULT_MEASURMENTDATE)));
+            .andExpect(jsonPath("$.measurmentdate").value(DEFAULT_MEASURMENTDATE.toString()));
     }
 
     @Test
