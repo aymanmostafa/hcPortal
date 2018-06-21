@@ -69,6 +69,10 @@ public class BloodTestServiceImpl implements BloodTestService {
     @Override
     public Page<BloodTestDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all BloodTests");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return bloodTestRepository.findAllByUseridIn(userids, pageable)
             .map(bloodTestMapper::toDto);
     }

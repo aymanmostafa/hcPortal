@@ -18,6 +18,7 @@ export class DiabetesSugarTestService {
     constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
 
     create(diabetesSugarTest: DiabetesSugarTest): Observable<EntityResponseType> {
+        debugger;
         const copy = this.convert(diabetesSugarTest);
         return this.http.post<DiabetesSugarTest>(this.resourceUrl, copy, { observe: 'response' })
             .map((res: EntityResponseType) => this.convertResponse(res));
@@ -64,7 +65,7 @@ export class DiabetesSugarTestService {
     private convertItemFromServer(diabetesSugarTest: DiabetesSugarTest): DiabetesSugarTest {
         const copy: DiabetesSugarTest = Object.assign({}, diabetesSugarTest);
         copy.measurmentdate = this.dateUtils
-            .convertLocalDateFromServer(diabetesSugarTest.measurmentdate);
+            .convertDateTimeFromServer(diabetesSugarTest.measurmentdate);
         return copy;
     }
 
@@ -73,8 +74,6 @@ export class DiabetesSugarTestService {
      */
     private convert(diabetesSugarTest: DiabetesSugarTest): DiabetesSugarTest {
         const copy: DiabetesSugarTest = Object.assign({}, diabetesSugarTest);
-        copy.measurmentdate = this.dateUtils
-            .convertLocalDateToServer(diabetesSugarTest.measurmentdate);
         return copy;
     }
 }

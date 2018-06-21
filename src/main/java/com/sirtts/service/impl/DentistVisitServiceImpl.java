@@ -69,6 +69,10 @@ public class DentistVisitServiceImpl implements DentistVisitService {
     @Override
     public Page<DentistVisitDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all DentistVisits");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return dentistVisitRepository.findAllByUseridIn(userids, pageable)
             .map(dentistVisitMapper::toDto);
     }

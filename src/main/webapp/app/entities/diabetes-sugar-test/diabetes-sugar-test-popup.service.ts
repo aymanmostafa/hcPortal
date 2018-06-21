@@ -4,12 +4,14 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
 import { DiabetesSugarTest } from './diabetes-sugar-test.model';
 import { DiabetesSugarTestService } from './diabetes-sugar-test.service';
+import {DatePipe} from "@angular/common";
 
 @Injectable()
 export class DiabetesSugarTestPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
+        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private diabetesSugarTestService: DiabetesSugarTestService
@@ -29,13 +31,8 @@ export class DiabetesSugarTestPopupService {
                 this.diabetesSugarTestService.find(id)
                     .subscribe((diabetesSugarTestResponse: HttpResponse<DiabetesSugarTest>) => {
                         const diabetesSugarTest: DiabetesSugarTest = diabetesSugarTestResponse.body;
-                        if (diabetesSugarTest.measurmentdate) {
-                            diabetesSugarTest.measurmentdate = {
-                                year: diabetesSugarTest.measurmentdate.getFullYear(),
-                                month: diabetesSugarTest.measurmentdate.getMonth() + 1,
-                                day: diabetesSugarTest.measurmentdate.getDate()
-                            };
-                        }
+                        diabetesSugarTest.measurmentdate = this.datePipe
+                            .transform(diabetesSugarTest.measurmentdate, 'yyyy-MM-ddTHH:mm:ss');
                         this.ngbModalRef = this.diabetesSugarTestModalRef(component, diabetesSugarTest);
                         resolve(this.ngbModalRef);
                     });

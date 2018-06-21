@@ -1,9 +1,11 @@
 package com.sirtts.service.dto;
 
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -19,7 +21,7 @@ public class DiabetesSugarTestDTO implements Serializable {
     private Double result;
 
     @NotNull
-    private LocalDate measurmentdate;
+    private LocalDateTime measurmentdate;
 
     public String getId() {
         return id;
@@ -45,11 +47,11 @@ public class DiabetesSugarTestDTO implements Serializable {
         this.result = result;
     }
 
-    public LocalDate getMeasurmentdate() {
+    public LocalDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public void setMeasurmentdate(LocalDate measurmentdate) {
+    public void setMeasurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
 

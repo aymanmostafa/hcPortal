@@ -26,7 +26,7 @@
             <tr *ngFor="let diabetesSugarTest of diabetesSugarTests ;trackBy: trackId">
                 <td>{{diabetesSugarTest.userid}}</td>
                 <td>{{diabetesSugarTest.result}}</td>
-                <td>{{diabetesSugarTest.measurmentdate | date:'mediumDate'}}</td>
+                <td>{{diabetesSugarTest.measurmentdate | date:'medium'}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

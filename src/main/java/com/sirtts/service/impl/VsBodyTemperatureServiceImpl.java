@@ -69,6 +69,10 @@ public class VsBodyTemperatureServiceImpl implements VsBodyTemperatureService {
     @Override
     public Page<VsBodyTemperatureDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all VsBodyTemperatures");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return vsBodyTemperatureRepository.findAllByUseridIn(userids, pageable)
             .map(vsBodyTemperatureMapper::toDto);
     }

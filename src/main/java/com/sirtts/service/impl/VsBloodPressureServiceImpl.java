@@ -69,6 +69,10 @@ public class VsBloodPressureServiceImpl implements VsBloodPressureService {
     @Override
     public Page<VsBloodPressureDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all VsBloodPressures");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return vsBloodPressureRepository.findAllByUseridIn(userids, pageable)
             .map(vsBloodPressureMapper::toDto);
     }

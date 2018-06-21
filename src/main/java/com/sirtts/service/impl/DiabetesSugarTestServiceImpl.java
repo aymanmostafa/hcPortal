@@ -6,6 +6,7 @@ import com.sirtts.domain.DiabetesSugarTest;
 import com.sirtts.repository.DiabetesSugarTestRepository;
 import com.sirtts.service.dto.DiabetesSugarTestDTO;
 import com.sirtts.service.mapper.DiabetesSugarTestMapper;
+import io.swagger.annotations.Authorization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -71,6 +72,10 @@ public class DiabetesSugarTestServiceImpl implements DiabetesSugarTestService {
     @Override
     public Page<DiabetesSugarTestDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all DiabetesSugarTests");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return diabetesSugarTestRepository.findAllByUseridIn(userids, pageable)
             .map(diabetesSugarTestMapper::toDto);
     }

@@ -69,6 +69,10 @@ public class VsHeartRateServiceImpl implements VsHeartRateService {
     @Override
     public Page<VsHeartRateDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all VsHeartRates");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return vsHeartRateRepository.findAllByUseridIn(userids, pageable)
             .map(vsHeartRateMapper::toDto);
     }

@@ -18,7 +18,6 @@ export class DiabetesSugarTestDialogComponent implements OnInit {
 
     diabetesSugarTest: DiabetesSugarTest;
     isSaving: boolean;
-    measurmentdateDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,

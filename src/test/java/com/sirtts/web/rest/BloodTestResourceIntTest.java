@@ -22,11 +22,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
 import static com.sirtts.web.rest.TestUtil.createFormattingConversionService;
+import static com.sirtts.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -239,8 +242,8 @@ public class BloodTestResourceIntTest {
     private static final Double DEFAULT_WHITE_BLOOD_CELL_COUNT = 1D;
     private static final Double UPDATED_WHITE_BLOOD_CELL_COUNT = 2D;
 
-    private static final LocalDate DEFAULT_MEASURMENTDATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_MEASURMENTDATE = LocalDate.now(ZoneId.systemDefault());
+    private static final ZonedDateTime DEFAULT_MEASURMENTDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_MEASURMENTDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private BloodTestRepository bloodTestRepository;
@@ -538,7 +541,7 @@ public class BloodTestResourceIntTest {
             .andExpect(jsonPath("$.[*].vitaminA").value(hasItem(DEFAULT_VITAMIN_A.doubleValue())))
             .andExpect(jsonPath("$.[*].wBC").value(hasItem(DEFAULT_W_BC.doubleValue())))
             .andExpect(jsonPath("$.[*].whiteBloodCellCount").value(hasItem(DEFAULT_WHITE_BLOOD_CELL_COUNT.doubleValue())))
-            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(DEFAULT_MEASURMENTDATE.toString())));
+            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(sameInstant(DEFAULT_MEASURMENTDATE))));
     }
 
     @Test
@@ -617,7 +620,7 @@ public class BloodTestResourceIntTest {
             .andExpect(jsonPath("$.vitaminA").value(DEFAULT_VITAMIN_A.doubleValue()))
             .andExpect(jsonPath("$.wBC").value(DEFAULT_W_BC.doubleValue()))
             .andExpect(jsonPath("$.whiteBloodCellCount").value(DEFAULT_WHITE_BLOOD_CELL_COUNT.doubleValue()))
-            .andExpect(jsonPath("$.measurmentdate").value(DEFAULT_MEASURMENTDATE.toString()));
+            .andExpect(jsonPath("$.measurmentdate").value(sameInstant(DEFAULT_MEASURMENTDATE)));
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.sirtts.service.dto;
 
 
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -146,7 +146,7 @@ public class BloodTestDTO implements Serializable {
     private Double whiteBloodCellCount;
 
     @NotNull
-    private LocalDate measurmentdate;
+    private ZonedDateTime measurmentdate;
 
     public String getId() {
         return id;
@@ -684,11 +684,11 @@ public class BloodTestDTO implements Serializable {
         this.whiteBloodCellCount = whiteBloodCellCount;
     }
 
-    public LocalDate getMeasurmentdate() {
+    public ZonedDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public void setMeasurmentdate(LocalDate measurmentdate) {
+    public void setMeasurmentdate(ZonedDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
 

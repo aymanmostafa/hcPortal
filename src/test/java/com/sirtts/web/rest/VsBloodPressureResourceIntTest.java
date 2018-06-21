@@ -22,11 +22,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
 import static com.sirtts.web.rest.TestUtil.createFormattingConversionService;
+import static com.sirtts.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -50,8 +53,8 @@ public class VsBloodPressureResourceIntTest {
     private static final Double DEFAULT_DIASTOLIC = 1D;
     private static final Double UPDATED_DIASTOLIC = 2D;
 
-    private static final LocalDate DEFAULT_MEASURMENTDATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_MEASURMENTDATE = LocalDate.now(ZoneId.systemDefault());
+    private static final ZonedDateTime DEFAULT_MEASURMENTDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_MEASURMENTDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private VsBloodPressureRepository vsBloodPressureRepository;
@@ -214,7 +217,7 @@ public class VsBloodPressureResourceIntTest {
             .andExpect(jsonPath("$.[*].userid").value(hasItem(DEFAULT_USERID.toString())))
             .andExpect(jsonPath("$.[*].systolic").value(hasItem(DEFAULT_SYSTOLIC.doubleValue())))
             .andExpect(jsonPath("$.[*].diastolic").value(hasItem(DEFAULT_DIASTOLIC.doubleValue())))
-            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(DEFAULT_MEASURMENTDATE.toString())));
+            .andExpect(jsonPath("$.[*].measurmentdate").value(hasItem(sameInstant(DEFAULT_MEASURMENTDATE))));
     }
 
     @Test
@@ -230,7 +233,7 @@ public class VsBloodPressureResourceIntTest {
             .andExpect(jsonPath("$.userid").value(DEFAULT_USERID.toString()))
             .andExpect(jsonPath("$.systolic").value(DEFAULT_SYSTOLIC.doubleValue()))
             .andExpect(jsonPath("$.diastolic").value(DEFAULT_DIASTOLIC.doubleValue()))
-            .andExpect(jsonPath("$.measurmentdate").value(DEFAULT_MEASURMENTDATE.toString()));
+            .andExpect(jsonPath("$.measurmentdate").value(sameInstant(DEFAULT_MEASURMENTDATE)));
     }
 
     @Test

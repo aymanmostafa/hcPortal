@@ -6,7 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -29,7 +30,7 @@ public class DiabetesSugarTest extends AbstractAuditingEntity implements Seriali
 
     @NotNull
     @Field("measurmentdate")
-    private LocalDate measurmentdate;
+    private LocalDateTime measurmentdate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -66,16 +67,16 @@ public class DiabetesSugarTest extends AbstractAuditingEntity implements Seriali
         this.result = result;
     }
 
-    public LocalDate getMeasurmentdate() {
+    public LocalDateTime getMeasurmentdate() {
         return measurmentdate;
     }
 
-    public DiabetesSugarTest measurmentdate(LocalDate measurmentdate) {
+    public DiabetesSugarTest measurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
         return this;
     }
 
-    public void setMeasurmentdate(LocalDate measurmentdate) {
+    public void setMeasurmentdate(LocalDateTime measurmentdate) {
         this.measurmentdate = measurmentdate;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

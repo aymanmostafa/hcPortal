@@ -69,6 +69,10 @@ public class VsRespiratoryRateServiceImpl implements VsRespiratoryRateService {
     @Override
     public Page<VsRespiratoryRateDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all VsRespiratoryRates");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return vsRespiratoryRateRepository.findAllByUseridIn(userids, pageable)
             .map(vsRespiratoryRateMapper::toDto);
     }

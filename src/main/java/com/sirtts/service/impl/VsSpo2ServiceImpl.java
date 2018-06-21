@@ -72,6 +72,10 @@ public class VsSpo2ServiceImpl implements VsSpo2Service {
     @Override
     public Page<VsSpo2DTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all VsSpo2S");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return vsSpo2Repository.findAllByUseridIn(userids, pageable)
             .map(vsSpo2Mapper::toDto);
     }

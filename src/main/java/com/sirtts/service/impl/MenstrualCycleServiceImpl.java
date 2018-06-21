@@ -69,6 +69,10 @@ public class MenstrualCycleServiceImpl implements MenstrualCycleService {
     @Override
     public Page<MenstrualCycleDTO> findAllByUserid(String[] userids, Pageable pageable) {
         log.debug("Request to get all MenstrualCycles");
+        if(userids == null) {
+            userids = new String[1];
+            userids[0] = SecurityUtils.getCurrentUserLogin().get();;
+        }
         return menstrualCycleRepository.findAllByUseridIn(userids, pageable)
             .map(menstrualCycleMapper::toDto);
     }

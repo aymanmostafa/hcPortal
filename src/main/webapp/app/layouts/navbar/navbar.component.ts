@@ -82,7 +82,6 @@ export class NavbarComponent implements OnInit {
 
     isFemale() {
         this.gender = this.principal.getGender();
-        debugger;
         if(this.gender == 'FEMALE') return true;
         else return false;
     }
