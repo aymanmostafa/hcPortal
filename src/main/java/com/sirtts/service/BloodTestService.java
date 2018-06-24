@@ -4,6 +4,9 @@ import com.sirtts.service.dto.BloodTestDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 /**
  * Service Interface for managing BloodTest.
  */
@@ -47,4 +50,12 @@ public interface BloodTestService {
      * @param id the id of the entity
      */
     void delete(String id);
+
+    /**
+     * Get the bloodTest columns.
+     *
+     * @return the entity
+     */
+    List findColumns();
+
 }

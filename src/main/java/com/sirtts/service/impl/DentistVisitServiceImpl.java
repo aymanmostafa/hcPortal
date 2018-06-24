@@ -12,6 +12,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Service Implementation for managing DentistVisit.
@@ -25,9 +29,12 @@ public class DentistVisitServiceImpl implements DentistVisitService {
 
     private final DentistVisitMapper dentistVisitMapper;
 
+    private final DentistVisit dentistVisit;
+
     public DentistVisitServiceImpl(DentistVisitRepository dentistVisitRepository, DentistVisitMapper dentistVisitMapper) {
         this.dentistVisitRepository = dentistVisitRepository;
         this.dentistVisitMapper = dentistVisitMapper;
+        dentistVisit = new DentistVisit();
     }
 
     /**
@@ -99,5 +106,21 @@ public class DentistVisitServiceImpl implements DentistVisitService {
     public void delete(String id) {
         log.debug("Request to delete DentistVisit : {}", id);
         dentistVisitRepository.delete(id);
+    }
+
+    /**
+     * Get the dentistVisit columns.
+     *
+     * @return the entity
+     */
+    @Override
+    public List findColumns() {
+        Field[] fields =  dentistVisit.getClass().getDeclaredFields();
+        List columns = new ArrayList<String>();
+        for(int i = 0; i < fields.length; i++) {
+            if(fields[i].getType() == java.lang.Boolean.class)
+                columns.add(fields[i].getName());
+        }
+        return columns;
     }
 }

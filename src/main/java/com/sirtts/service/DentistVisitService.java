@@ -4,6 +4,8 @@ import com.sirtts.service.dto.DentistVisitDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing DentistVisit.
  */
@@ -48,4 +50,11 @@ public interface DentistVisitService {
      * @param id the id of the entity
      */
     void delete(String id);
+
+    /**
+     * Get the dentistVisit columns.
+     *
+     * @return the entity
+     */
+    List findColumns();
 }

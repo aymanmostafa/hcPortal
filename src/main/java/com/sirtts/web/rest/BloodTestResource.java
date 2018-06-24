@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -138,5 +139,17 @@ public class BloodTestResource {
         log.debug("REST request to delete BloodTest : {}", id);
         bloodTestService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id)).build();
+    }
+
+    /**
+     * GET Columns  /blood-tests/:id : get bloodTest columns.
+     *
+     * @return the ResponseEntity with status 200 (OK)
+     */
+    @GetMapping("/blood-tests/columns")
+    @Timed
+    public ResponseEntity<List> getColumns() {
+        log.debug("REST request to get columns");
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(bloodTestService.findColumns()));
     }
 }

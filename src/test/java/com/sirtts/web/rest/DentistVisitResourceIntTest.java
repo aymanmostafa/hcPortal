@@ -4,6 +4,7 @@ import com.sirtts.HcPortalApp;
 
 import com.sirtts.domain.DentistVisit;
 import com.sirtts.repository.DentistVisitRepository;
+import com.sirtts.service.DentistNextVisitService;
 import com.sirtts.service.DentistVisitService;
 import com.sirtts.service.dto.DentistVisitDTO;
 import com.sirtts.service.mapper.DentistVisitMapper;
@@ -93,6 +94,9 @@ public class DentistVisitResourceIntTest {
     private DentistVisitService dentistVisitService;
 
     @Autowired
+    private DentistNextVisitService dentistNextVisitService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -108,7 +112,7 @@ public class DentistVisitResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final DentistVisitResource dentistVisitResource = new DentistVisitResource(dentistVisitService);
+        final DentistVisitResource dentistVisitResource = new DentistVisitResource(dentistVisitService,dentistNextVisitService);
         this.restDentistVisitMockMvc = MockMvcBuilders.standaloneSetup(dentistVisitResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

@@ -12,6 +12,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Service Implementation for managing BloodTest.
@@ -25,9 +29,12 @@ public class BloodTestServiceImpl implements BloodTestService {
 
     private final BloodTestMapper bloodTestMapper;
 
+    private final BloodTest bloodTest;
+
     public BloodTestServiceImpl(BloodTestRepository bloodTestRepository, BloodTestMapper bloodTestMapper) {
         this.bloodTestRepository = bloodTestRepository;
         this.bloodTestMapper = bloodTestMapper;
+        bloodTest = new BloodTest();
     }
 
     /**
@@ -99,5 +106,21 @@ public class BloodTestServiceImpl implements BloodTestService {
     public void delete(String id) {
         log.debug("Request to delete BloodTest : {}", id);
         bloodTestRepository.delete(id);
+    }
+
+    /**
+     * Get the bloodTest columns.
+     *
+     * @return the entity
+     */
+    @Override
+    public List findColumns() {
+        Field[] fields =  bloodTest.getClass().getDeclaredFields();
+        List columns = new ArrayList<String>();
+        for(int i = 0; i < fields.length; i++) {
+            if(fields[i].getType() == java.lang.Double.class)
+                columns.add(fields[i].getName());
+        }
+        return columns;
     }
 }
