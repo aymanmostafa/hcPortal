@@ -4,6 +4,8 @@ import com.sirtts.service.dto.DiabetesSugarTestDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing DiabetesSugarTest.
  */
@@ -31,7 +33,7 @@ public interface DiabetesSugarTestService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<DiabetesSugarTestDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<DiabetesSugarTestDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" diabetesSugarTest.

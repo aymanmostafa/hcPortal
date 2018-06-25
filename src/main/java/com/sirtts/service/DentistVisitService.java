@@ -4,6 +4,7 @@ import com.sirtts.service.dto.DentistVisitDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public interface DentistVisitService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<DentistVisitDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<DentistVisitDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
 
     /**

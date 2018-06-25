@@ -4,6 +4,8 @@ import com.sirtts.service.dto.VsHeartRateDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing VsHeartRate.
  */
@@ -31,7 +33,7 @@ public interface VsHeartRateService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<VsHeartRateDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<VsHeartRateDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" vsHeartRate.

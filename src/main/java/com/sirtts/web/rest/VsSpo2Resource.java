@@ -105,9 +105,9 @@ public class VsSpo2Resource {
      */
     @GetMapping("/vs-spo-2-s/byUserid")
     @Timed
-    public ResponseEntity<List<VsSpo2DTO>> getAllVsSpo2SByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<VsSpo2DTO>> getAllVsSpo2SByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of VsSpo2S by userid");
-        Page<VsSpo2DTO> page = vsSpo2Service.findAllByUserid(userids, pageable);
+        Page<VsSpo2DTO> page = vsSpo2Service.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-spo-2-s/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

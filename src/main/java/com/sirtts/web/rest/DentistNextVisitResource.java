@@ -105,9 +105,9 @@ public class DentistNextVisitResource {
      */
     @GetMapping("/dentist-next-visits/byUserid")
     @Timed
-    public ResponseEntity<List<DentistNextVisitDTO>> getAllDentistNextVisitsByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<DentistNextVisitDTO>> getAllDentistNextVisitsByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of DentistVisits by userid");
-        Page<DentistNextVisitDTO> page = dentistNextVisitService.findAllByUserid(userids, pageable);
+        Page<DentistNextVisitDTO> page = dentistNextVisitService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/dentist-next-visits/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

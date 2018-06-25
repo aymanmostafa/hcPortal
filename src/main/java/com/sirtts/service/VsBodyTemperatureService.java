@@ -4,6 +4,8 @@ import com.sirtts.service.dto.VsBodyTemperatureDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing VsBodyTemperature.
  */
@@ -31,7 +33,7 @@ public interface VsBodyTemperatureService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<VsBodyTemperatureDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<VsBodyTemperatureDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
 
     /**

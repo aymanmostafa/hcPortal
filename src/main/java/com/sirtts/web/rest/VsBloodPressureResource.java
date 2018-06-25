@@ -105,9 +105,9 @@ public class VsBloodPressureResource {
      */
     @GetMapping("/vs-blood-pressures/byUserid")
     @Timed
-    public ResponseEntity<List<VsBloodPressureDTO>> getAllVsBloodPressuresByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<VsBloodPressureDTO>> getAllVsBloodPressuresByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of VsBloodPressures by userid");
-        Page<VsBloodPressureDTO> page = vsBloodPressureService.findAllByUserid(userids, pageable);
+        Page<VsBloodPressureDTO> page = vsBloodPressureService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-blood-pressures/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

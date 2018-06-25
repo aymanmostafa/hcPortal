@@ -4,6 +4,8 @@ import com.sirtts.service.dto.VsRespiratoryRateDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing VsRespiratoryRate.
  */
@@ -31,7 +33,7 @@ public interface VsRespiratoryRateService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<VsRespiratoryRateDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<VsRespiratoryRateDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" vsRespiratoryRate.

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public interface BloodTestService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<BloodTestDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<BloodTestDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" bloodTest.

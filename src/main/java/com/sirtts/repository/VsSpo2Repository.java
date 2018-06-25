@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -17,5 +18,6 @@ import java.util.List;
 @Repository
 public interface VsSpo2Repository extends MongoRepository<VsSpo2, String> {
 
-    Page<VsSpo2> findAllByUseridIn(String[] userids, Pageable pageable);
+    Page<VsSpo2> findAllByUseridInAndAndMeasurmentdateBetweenOrderByMeasurmentdateDesc(String[] userids, LocalDateTime startDate, LocalDateTime endDate,
+                                                              Pageable pageable);
 }
