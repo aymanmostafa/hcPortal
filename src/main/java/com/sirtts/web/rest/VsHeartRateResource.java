@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
 
@@ -105,9 +108,9 @@ public class VsHeartRateResource {
      */
     @GetMapping("/vs-heart-rates/byUserid")
     @Timed
-    public ResponseEntity<List<VsHeartRateDTO>> getAllVsHeartRatesByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<VsHeartRateDTO>> getAllVsHeartRatesByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of VsHeartRates by userid");
-        Page<VsHeartRateDTO> page = vsHeartRateService.findAllByUserid(userids, pageable);
+        Page<VsHeartRateDTO> page = vsHeartRateService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-heart-rates/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

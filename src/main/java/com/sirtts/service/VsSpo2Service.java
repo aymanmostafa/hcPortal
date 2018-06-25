@@ -4,6 +4,7 @@ import com.sirtts.service.dto.VsSpo2DTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public interface VsSpo2Service {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<VsSpo2DTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<VsSpo2DTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" vsSpo2.

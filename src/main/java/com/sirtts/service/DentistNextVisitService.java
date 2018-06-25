@@ -4,6 +4,8 @@ import com.sirtts.service.dto.DentistNextVisitDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing DentistNextVisit.
  */
@@ -31,7 +33,7 @@ public interface DentistNextVisitService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<DentistNextVisitDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<DentistNextVisitDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
     /**
      * Get the "id" dentistNextVisit.

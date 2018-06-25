@@ -105,9 +105,9 @@ public class VsBodyTemperatureResource {
      */
     @GetMapping("/vs-body-temperatures/byUserid")
     @Timed
-    public ResponseEntity<List<VsBodyTemperatureDTO>> getAllVsBodyTemperaturesByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<VsBodyTemperatureDTO>> getAllVsBodyTemperaturesByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of VsBodyTemperatures by userid");
-        Page<VsBodyTemperatureDTO> page = vsBodyTemperatureService.findAllByUserid(userids, pageable);
+        Page<VsBodyTemperatureDTO> page = vsBodyTemperatureService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-body-temperatures/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -115,9 +115,9 @@ public class DentistVisitResource {
      */
     @GetMapping("/dentist-visits/byUserid")
     @Timed
-    public ResponseEntity<List<DentistVisitDTO>> getAllDentistVisitsByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<DentistVisitDTO>> getAllDentistVisitsByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of DentistVisits by userid");
-        Page<DentistVisitDTO> page = dentistVisitService.findAllByUserid(userids, pageable);
+        Page<DentistVisitDTO> page = dentistVisitService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/dentist-visits/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -160,7 +160,8 @@ public class DentistVisitResource {
     public ResponseEntity<List> getColumnsAndNextVisit() throws JSONException {
         log.debug("REST request to get columns");
         List response = dentistVisitService.findColumns();
-        List<DentistNextVisitDTO> dentistNextVisit =  dentistNextVisitService.findAllByUserid(null,new PageRequest(0,1)).getContent();
+        List<DentistNextVisitDTO> dentistNextVisit =  dentistNextVisitService.findAllByUserid(null, null, null, new PageRequest(0,1))
+            .getContent();
         if(!dentistNextVisit.isEmpty()){
             response.add(dentistNextVisit.get(0));
         }

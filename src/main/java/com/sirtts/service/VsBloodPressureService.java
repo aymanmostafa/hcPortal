@@ -4,6 +4,8 @@ import com.sirtts.service.dto.VsBloodPressureDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
+
 /**
  * Service Interface for managing VsBloodPressure.
  */
@@ -31,7 +33,7 @@ public interface VsBloodPressureService {
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<VsBloodPressureDTO> findAllByUserid(String[] userids, Pageable pageable);
+    Page<VsBloodPressureDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable);
 
 
     /**

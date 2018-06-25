@@ -106,9 +106,9 @@ public class BloodTestResource {
      */
     @GetMapping("/blood-tests/byUserid")
     @Timed
-    public ResponseEntity<List<BloodTestDTO>> getAllBloodTestsByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<BloodTestDTO>> getAllBloodTestsByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of BloodTests by userid");
-        Page<BloodTestDTO> page = bloodTestService.findAllByUserid(userids, pageable);
+        Page<BloodTestDTO> page = bloodTestService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/blood-tests/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

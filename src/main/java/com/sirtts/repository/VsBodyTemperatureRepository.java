@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.time.LocalDateTime;
+
 /**
  * Spring Data MongoDB repository for the VsBodyTemperature entity.
  */
@@ -14,6 +16,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 @Repository
 public interface VsBodyTemperatureRepository extends MongoRepository<VsBodyTemperature, String> {
 
-    Page<VsBodyTemperature> findAllByUseridIn(String[] userids, Pageable pageable);
+    Page<VsBodyTemperature> findAllByUseridInAndAndMeasurmentdateBetweenOrderByMeasurmentdateDesc(String[] userids, LocalDateTime startDate, LocalDateTime endDate,
+                                                                         Pageable pageable);
 
 }

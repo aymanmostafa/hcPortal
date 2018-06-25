@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,13 +76,18 @@ public class DentistVisitServiceImpl implements DentistVisitService {
      * @return the list of entities
      */
     @Override
-    public Page<DentistVisitDTO> findAllByUserid(String[] userids, Pageable pageable) {
+    public Page<DentistVisitDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("Request to get all DentistVisits");
         if(userids == null) {
             userids = new String[1];
             userids[0] = SecurityUtils.getCurrentUserLogin().get();;
         }
-        return dentistVisitRepository.findAllByUseridIn(userids, pageable)
+        LocalDateTime start,end;
+        if(startDate == null) start = LocalDateTime.ofEpochSecond(Integer.MIN_VALUE,0, ZoneOffset.UTC);
+        else start = LocalDateTime.parse(startDate+"T00:00:00");
+        if(endDate == null) end = LocalDateTime.ofEpochSecond(Integer.MAX_VALUE,0, ZoneOffset.UTC);
+        else end  = LocalDateTime.parse(endDate+"T23:59:59");
+        return dentistVisitRepository.findAllByUseridInAndAndMeasurmentdateBetweenOrderByMeasurmentdateDesc(userids,start, end, pageable)
             .map(dentistVisitMapper::toDto);
     }
 

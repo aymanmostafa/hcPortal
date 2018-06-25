@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.time.LocalDateTime;
+
 /**
  * Spring Data MongoDB repository for the DentistNextVisit entity.
  */
@@ -14,6 +16,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 @Repository
 public interface DentistNextVisitRepository extends MongoRepository<DentistNextVisit, String> {
 
-    Page<DentistNextVisit> findAllByUseridIn(String[] userids, Pageable pageable);
+    Page<DentistNextVisit> findAllByUseridInAndAndMeasurmentdateBetweenOrderByMeasurmentdateDesc(String[] userids, LocalDateTime startDate, LocalDateTime endDate,
+                                                                        Pageable pageable);
 
 }

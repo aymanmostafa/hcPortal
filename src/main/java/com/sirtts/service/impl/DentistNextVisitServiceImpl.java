@@ -12,6 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 
 /**
  * Service Implementation for managing DentistNextVisit.
@@ -67,13 +70,18 @@ public class DentistNextVisitServiceImpl implements DentistNextVisitService {
      * @return the list of entities
      */
     @Override
-    public Page<DentistNextVisitDTO> findAllByUserid(String[] userids, Pageable pageable) {
+    public Page<DentistNextVisitDTO> findAllByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         if(userids == null) {
             userids = new String[1];
             userids[0] = SecurityUtils.getCurrentUserLogin().get();;
         }
+        LocalDateTime start,end;
+        if(startDate == null) start = LocalDateTime.ofEpochSecond(Integer.MIN_VALUE,0, ZoneOffset.UTC);
+        else start = LocalDateTime.parse(startDate+"T00:00:00");
+        if(endDate == null) end = LocalDateTime.ofEpochSecond(Integer.MAX_VALUE,0, ZoneOffset.UTC);
+        else end  = LocalDateTime.parse(endDate+"T23:59:59");
         log.debug("Request to get all DentistNextVisits");
-        return dentistNextVisitRepository.findAllByUseridIn(userids, pageable)
+        return dentistNextVisitRepository.findAllByUseridInAndAndMeasurmentdateBetweenOrderByMeasurmentdateDesc(userids, start, end, pageable)
             .map(dentistNextVisitMapper::toDto);
     }
 

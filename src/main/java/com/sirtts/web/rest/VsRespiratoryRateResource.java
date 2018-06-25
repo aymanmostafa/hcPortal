@@ -105,9 +105,9 @@ public class VsRespiratoryRateResource {
      */
     @GetMapping("/vs-respiratory-rates/byUserid")
     @Timed
-    public ResponseEntity<List<VsRespiratoryRateDTO>> getAllVsRespiratoryRatesByUserid(String[] userids, Pageable pageable) {
+    public ResponseEntity<List<VsRespiratoryRateDTO>> getAllVsRespiratoryRatesByUserid(String[] userids, String startDate, String endDate, Pageable pageable) {
         log.debug("REST request to get a page of VsRespiratoryRates by userid");
-        Page<VsRespiratoryRateDTO> page = vsRespiratoryRateService.findAllByUserid(userids, pageable);
+        Page<VsRespiratoryRateDTO> page = vsRespiratoryRateService.findAllByUserid(userids, startDate, endDate, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/vs-respiratory-rates/byUserid");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
